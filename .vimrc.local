@@ -1,0 +1,206 @@
+" Modeline and Notes {
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"
+"       _ _                                __ _ _____            _
+"      (_) |_ _   _ _____ __    ___ _ __  / _/ |___ /     __   _(_)_ __ ___
+"      | | __| | | |_  / '_ \  / __| '_ \| |_| | |_ \ ____\ \ / / | '_ ` _ \
+"      | | |_| |_| |/ /| |_) | \__ \ |_) |  _| |___) |_____\ V /| | | | | | |
+"     _/ |\__|\__,_/___| .__/  |___/ .__/|_| |_|____/       \_/ |_|_| |_| |_|
+"    |__/              |_|         |_|
+" Custom settings for local instance it depends for each platform
+" }
+
+" Providers {
+if has('nvim')
+    set wildoptions+=pum
+    " Nvim providers {
+        " Python
+        let g:python3_host_prog = '/usr/bin/python3'
+        let g:python_host_prog = '/usr/bin/python2'
+        let g:loaded_python_provider = 0
+
+        " Ruby
+        let g:ruby_host_prog = '/usr/bin/ruby'
+    " }
+endif
+" }
+
+" Spell Settings {
+    map <F6>   <Esc>:setlocal spell spelllang=es<CR>
+    map <S-F6> <Esc>:setlocal nospell<CR>
+    map <F7>   <Esc>:setlocal spell spelllang=en<CR>
+    map <S-F7> <Esc>:setlocal nospell<CR>
+" }
+
+" UI Settings {
+
+    " set bg=light
+
+    " let g:xtabline_settings = {
+                " \'theme': 'seoul',
+                " \}
+
+
+    " Gruvbox Work well with light background
+    " colorscheme gruvbox
+    " let g:airline_theme = 'gruvbox'
+
+    " PaperColor Work well with light background
+    " colorscheme PaperColor
+    " let g:airline_theme = 'papercolor'
+
+    " Srcery
+    " colorscheme srcery
+    " let g:airline_theme = 'srcery'
+
+    " Rigel
+    " colorscheme rigel
+    " let g:rigel_airline = 1
+    " let g:airline_theme = 'rigel'
+
+    " Sonokai
+    " let g:sonokai_enable_italic = 1
+    " let g:sonokai_diagnostic_line_highlight = 0
+    " let g:sonokai_style = 'andromeda'
+    " colorscheme sonokai 
+    " let g:airline_theme = 'sonokai'
+
+    " colorscheme deus
+    " let g:deus_termcolors=256
+    let g:airline_theme = 'deus'
+
+    " Available options: ocean, medium, deep, darker 
+    let g:oceanic_material_background='ocean'
+    let g:oceanic_material_allow_bold=1
+    let g:oceanic_material_allow_italic=1
+    let g:oceanic_material_allow_undercurl=1
+    colorscheme oceanic_material
+" }
+
+" GUI Settings {
+    if has("gui_running")
+        set guifont=JetBrains\ Mono\ Regular\ 9.0
+        setglobal guioptions-=T " Remove Toolbar
+        setglobal guioptions-=L " Remove Left-hand scroll bar
+        setglobal guioptions-=l " Left Scrollbar
+        setglobal guioptions-=m " Menu Bar
+        setglobal guioptions-=r " Right Scrollbar
+        setglobal guioptions-=R " Right Scrollbar
+        let g:airline_left_sep=''
+        let g:airline_right_sep=''
+    else
+        let g:airline_left_sep=''
+        let g:airline_right_sep=''
+    endif
+" }
+" Plugin Settings {
+
+" SnipMate
+let g:snips_author = 'Jacob Tuz Poot <jetp79@gmail.com>'
+
+" Airline
+let g:airline#extensions#scrollbar#enabled = 0
+
+" NERDTRee {
+let g:NERDTreeDirArrowExpandable = ''   " nf-oct-chevron_right
+let g:NERDTreeDirArrowCollapsible = ''  " nf-oct-chevron_down
+" }
+
+" ALE {
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_linters_explicit = 1
+" let g:ale_floating_preview = 1
+" let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰']
+let g:ale_linters = {
+            \   'python': ['flake8', 'pyls'],
+            \   'ruby': ['solargraph'],
+            \}
+
+" Due this issue https://github.com/dense-analysis/ale/issues/3722
+" the new LSP client is pylsp from https://github.com/python-lsp/python-lsp-server
+let g:ale_python_pyls_executable = "pylsp"
+
+let g:ale_python_pyls_config = {
+            \   'pylsp': {
+            \     'plugins': {
+            \       'pycodestyle': {
+            \         'enabled': v:false,
+            \       },
+            \       'pyflakes': {
+            \         'enabled': v:false,
+            \       },
+            \       'pydocstyle': {
+            \         'enabled': v:false,
+            \       },
+            \     },
+            \   },
+            \}
+
+" Global Shortcuts
+nmap <silent> <leader>an :ALENext<cr>
+nmap <silent> <leader>ap :ALEPrevious<cr>
+" }
+
+" LSP {
+set hidden
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'floating'
+let g:float_preview#docked = 0
+highlight link EchoDocFloat Pmenu
+
+if !g:ale_disable_lsp
+    " TODO: enable ALE for javascript = javascript-typescript-stdio
+    "  'cpp': ['cquery', '--log-file=/tmp/cq.log', '--init={'cacheDirectory' : '/tmp/cquery/'}'],
+    "  'c':   ['cquery', '--log-file=/tmp/cq.log', '--init={'cacheDirectory' : '/tmp/cquery/'}'],
+    "  'sh':  ['bash-language-server', 'start']
+    function SetLSPShortcuts()
+        if has_key(g:ale_linters, &filetype)
+            nnoremap <buffer> <silent>gd :ALEGoToDefinition<CR>
+            nnoremap <buffer> <leader>lr :ALERename<CR>
+            nnoremap <buffer> <leader>lf :ALEFix<CR>
+            nnoremap <buffer> <leader>lt :ALEGoToTypeDefinition<CR>
+            nnoremap <buffer> <silent>gr :ALEFindReferences<CR>
+            " nnoremap <buffer> <leader>la :<CR>
+            nnoremap <buffer> <leader>lc :ALEComplete<CR>
+            nnoremap <buffer> <leader>ld :ALEHover<CR>
+            nnoremap <buffer> <leader>ls :ALESymbolSearch<CR>
+            " nnoremap <buffer> <leader>lm :<CR>
+        endif
+    endfunction
+endif
+
+autocmd FileType * call SetLSPShortcuts()
+" }
+
+" VTR {
+let g:VtrStripLeadingWhitespace = 0
+let g:VtrClearEmptyLines = 0
+let g:VtrAppendNewline = 1
+" }
+
+" Vim-Test {
+" Some functions por vim-test can be used as the follow examples:
+" :RSpec --tag ~slow
+" :Mocha --grep 'API'
+" :ExUnit --trace
+" :Nose --failed
+" let g:test#runner_commands = ['RSpec']
+" map <Leader>rs :RSpec --format d<CR>
+
+let g:test#preserve_screen = 1
+let test#strategy = "vtr"
+map <Leader>e :TestFile<CR>
+map <Leader>n :TestNearest<CR>
+map <Leader>l :TestLast<CR>
+map <Leader>s :TestSuite<CR>
+let test#ruby#rspec#options = {
+            \ 'nearest': '--backtrace',
+            \ 'file':    '--format documentation',
+            \ 'suite':   '--tag ~slow',
+            \}
+
+let test#python#pytest#options = {
+            \ 'file': '-v',
+            \}
+" }

@@ -1,0 +1,6 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+command_timeout = 999
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true

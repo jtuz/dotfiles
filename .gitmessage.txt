@@ -1,0 +1,21 @@
+Capitalized, short (50 chars or less) summary.
+
+Why:
+
+More detailed explanatory text, if necessary, Write your commit message in
+the imperative: "Fix Bug" and not "fixed bug" or "Fixes bug"
+
+This change addresses the need by:
+
+Further paragraphs come after blank lines.
+
+- Item 1
+- Item 2
+- Item n
+
+[Tickets: #x, #y, ... ]
+
+# Add co-authors if you worked on this code with others:
+#
+# Co-authored-by: Full Name <email@example.com>
+# Co-authored-by: Full Name <email@example.com>

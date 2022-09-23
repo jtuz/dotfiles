@@ -1,0 +1,42 @@
+[ui]
+username = Jacob Tuz <jetp79@gmail.com>
+verbose = true
+merge = vimdiff
+editor = vim
+ssh = ssh -C
+
+[diff]
+git = 1
+
+[extensions]
+color =
+progress =
+graphlog =
+
+[color]
+status.modified = magenta bold
+status.added = green bold
+status.removed = red bold
+status.deleted = cyan bold
+status.unknown = blue bold
+status.ignored = black bold
+diff.diffline = bold
+diff.extended = cyan bold
+diff.file_a = red bold
+diff.file_b = green bold
+diff.hunk = magenta
+diff.deleted = red
+diff.inserted = green
+diff.changed = white
+diff.trailingwhitespace = bold red_background
+
+[alias]
+slog = log --style=˝/.hg-styles/map-cmdline.slog
+nlog = log --style=˝/.hg-styles/map-cmdline.nlog
+sglog = glog --style=˝/.hg-styles/map-cmdline.sglog
+
+[web]
+#For Debian based systems 
+cacerts = /etc/ssl/certs/ca-certificates.crt
+# For Red Hat Systems
+#cacerts = /etc/pki/tls/certs/ca-bundle.crt

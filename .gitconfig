@@ -1,0 +1,67 @@
+[includeIf "gitdir:~/"]
+    path = .gitconfig-personal
+[includeIf "gitdir:/directory/personal/projects/**"]
+    path = .gitconfig-personal
+[includeIf "gitdir:/directory/work/projects/**"]
+    path = .gitconfig-work
+[user]
+    name = Jacob E. Tuz Poot
+[color]
+    ui = auto
+    status = auto
+    branch = auto
+[diff]
+    tool = vimdiff
+[difftool "vimdiff"]
+    path = nvim
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+    prompt = false
+[mergetool]
+    keepBackup = false
+[mergetool "vimdiff"]
+    path = nvim
+[github]
+    user = jtuz
+    token = <github-token>
+[credential]
+    helper = cache
+[core]
+    editor = nvim 
+    excludesFile = ~/.gitignore_global
+[commit]
+    template = ~/.gitmessage.txt
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+[gpg]
+    program = gpg2
+[pull]
+    ff = only
+[init]
+    defaultBranch = main
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+[delta]
+    features = side-by-side line-numbers decorations
+    syntax-theme = Dracula
+    minus-style = red bold ul
+    plus-style = green bold ul
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = cyan box ul
+[delta "line-numbers"]
+    line-numbers-left-style = cyan
+    line-numbers-right-style = cyan
+    line-numbers-minus-style = 124
+    line-numbers-plus-style = 28

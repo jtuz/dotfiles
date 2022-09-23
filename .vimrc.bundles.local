@@ -1,0 +1,38 @@
+" Modeline and Notes {
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"
+"       _ _                                __ _ _____            _
+"      (_) |_ _   _ _____ __    ___ _ __  / _/ |___ /     __   _(_)_ __ ___
+"      | | __| | | |_  / '_ \  / __| '_ \| |_| | |_ \ ____\ \ / / | '_ ` _ \
+"      | | |_| |_| |/ /| |_) | \__ \ |_) |  _| |___) |_____\ V /| | | | | | |
+"     _/ |\__|\__,_/___| .__/  |___/ .__/|_| |_|____/       \_/ |_|_| |_| |_|
+"    |__/              |_|         |_|
+" Custom plugins for local instance it depends for each platform, for example
+" TMUX Runner only works well with *NIX platforms
+" }
+
+" Editor UI Enhance {
+    Plug 'ekalinin/Dockerfile.vim'
+    Plug 'Shougo/echodoc.vim'
+    Plug 'sheerun/vim-polyglot'
+    if has('nvim') && !has("gui_running")
+        Plug 'ncm2/float-preview.nvim'
+    endif
+" }
+
+" Development Tools {
+    Plug 'janko/vim-test'
+    Plug 'christoomey/vim-tmux-runner'
+    Plug 'KabbAmine/zeavim.vim'
+" }
+
+" Themes {
+    Plug 'Rigellute/rigel'
+    Plug 'sainnhe/sonokai'
+    Plug 'ajmwagar/vim-deus'
+    Plug 'glepnir/oceanic-material'
+" }
+
+" Plugins disabled {
+    " UnPlug 'mhinz/vim-signify'
+" }

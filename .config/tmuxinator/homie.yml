@@ -1,0 +1,56 @@
+# /home/jtuzp/.config/tmuxinator/homie.yml
+
+name: homie
+root: /mnt/6284C2A984C27ED3/Workspace/WebProjects/HOMIEWorkspace/homiemx
+
+# Optional tmux socket
+# socket_name: foo
+
+# Note that the pre and post options have been deprecated and will be replaced by
+# project hooks.
+
+# Project hooks
+# Runs on project start, always
+on_project_start: docker start mongo-homie && docker start redis-homie
+# Run on project start, the first time
+# on_project_first_start: command
+# Run on project start, after the first time
+# on_project_restart: command
+# Run on project exit ( detaching from tmux session )
+# on_project_exit: vagrant halt
+# Run on project stop
+on_project_stop: docker stop mongo-homie && docker stop redis-homie
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+#pre_window: rvm use ruby-2.5.1
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: editor
+
+# Specifies (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
+# startup_pane: 1
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+windows:
+    - editor: nvim
+    - rails-console:
+        - rails c
+        - pry
+    - homie:
+        layout: 3ad5,215x49,0,0[215x24,0,0,13,215x24,0,25{107x24,0,25,14,107x24,108,25,18}]
+        panes:
+            - rails:
+                - rails s
+            - webpack:
+                - ./bin/webpack-dev-server --mode development --watch --colors
+            - sidekiq:
+                - sidekiq ./config/sidekiq.yml

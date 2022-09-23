@@ -1,0 +1,33 @@
+# hidden folders
+.git/
+.nox/
+.tox/
+.env/
+.venv/
+.idea/
+.vscode/
+.vagrant/
+.docker-sync/
+.pytest_cache/
+
+# Folders
+dist/
+var/
+tmp/
+env/
+log/
+venv/
+keys/
+build/
+public/
+extras/
+static/
+locale/*
+coverage/
+docs/_build/
+docs/locale/
+__pycache__/
+tests/report/
+node_modules/
+tests/.coverage
+tests/coverage_html/
