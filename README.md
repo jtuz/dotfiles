@@ -1,11 +1,11 @@
 ## Special thanks
 
 - To @siduck for his great work with [NvChad](https://github.com/NvChad/NvChad) and [chadwm](https://github.com/siduck/chadwm)
-- Derek Taylor for his amazing job special with xmonad, [Check his repo](https://gitlab.com/dwt1/dotfiles)
+- Derek Taylor for his great work special with xmonad, [Check his repo](https://gitlab.com/dwt1/dotfiles)
 
 ## Caveats
 
-Dot files have dependencies, this are some of I use.
+Dot files have dependencies, this are some I use.
 
 * Irssi
 * Github token

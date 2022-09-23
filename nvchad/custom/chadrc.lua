@@ -16,7 +16,7 @@ M.options = {
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
   theme_toggle = { "gruvchad", "tokyonight" },
-  theme = "tokyonight",
+  theme = "nightfox",
   hl_override = {
     Comment = { italic = true, fg="grey_fg" },
   },

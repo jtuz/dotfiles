@@ -6,6 +6,10 @@ local overrides = require "custom.plugins.configs"
 
 return {
   ----------- Override defaults ------------
+  --
+  ["nvim-telescope/telescope.nvim"] = {
+    override_options = overrides.telescope,
+  },
   ["goolord/alpha-nvim"] = {
     disable = false,
     override_options = overrides.alpha,
