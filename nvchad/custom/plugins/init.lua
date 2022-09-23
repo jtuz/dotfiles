@@ -50,15 +50,16 @@ return {
   ["NvChad/nvterm"] = false,
   ["folke/which-key.nvim"] = false,
   ------------ Custom plugins ---------------
-  ["tpope/vim-abolish"] = {},
   ["tpope/vim-surround"] = {
     keys = { "c", "d", "y" },
   },
-  ["liuchengxu/vista.vim"] = {},
+  ["tpope/vim-abolish"] = {},
   ["tpope/vim-repeat"] = {},
   ["tpope/vim-fugitive"] = {},
   ["tpope/vim-sleuth"] = {},
+  ["tpope/vim-projectionist"] = {},
   ["kshenoy/vim-signature"] = {},
+  ["liuchengxu/vista.vim"] = {},
   ["tommcdo/vim-exchange"] = {},
   ["matze/vim-move"] = {},
   ["mg979/vim-visual-multi"] = {
