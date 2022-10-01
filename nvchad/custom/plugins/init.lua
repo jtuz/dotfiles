@@ -24,9 +24,6 @@ return {
   ["williamboman/mason.nvim"] = {
     override_options = overrides.mason,
   },
-  ["lewis6991/gitsigns.nvim"] = {
-    override_options = overrides.gitsigns,
-  },
   ["lukas-reineke/indent-blankline.nvim"] = {
     override_options = overrides.blankline,
   },
