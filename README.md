@@ -1,8 +1,3 @@
-## Special thanks
-
-- To @siduck for his great work with [NvChad](https://github.com/NvChad/NvChad) and [chadwm](https://github.com/siduck/chadwm)
-- Derek Taylor for his great work special with xmonad, [Check his repo](https://gitlab.com/dwt1/dotfiles)
-
 ## Set credentials for this dot files
 
 * Irssi
@@ -100,3 +95,8 @@ yay -S freetype2 cairo
 sudo pacman xmonad xmonad-contrib xmonad-utils xmobar xmonad-log
 yay -S picom-ibhagwan-git siji-git ttf-unifont xorg-fonts-misc ttf-font-awesome xscreensaver trayer-srg
 ```
+
+## Credits
+
+- To @siduck for his great work with [NvChad](https://github.com/NvChad/NvChad) and [chadwm](https://github.com/siduck/chadwm)
+- Derek Taylor for his great work special with xmonad, [Check his repo](https://gitlab.com/dwt1/dotfiles)
