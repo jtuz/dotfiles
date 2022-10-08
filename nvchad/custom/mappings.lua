@@ -42,7 +42,7 @@ M.spelling = {
   n = {
     ["<F6>"] = { "<Esc><cmd> setlocal spell spelllang=es<CR>", "暈  ESP spelling" },
     ["<F7>"] = { "<Esc><cmd> setlocal spell spelllang=en<CR>", "暈  ENG spelling" },
-    ["<F8>"] = { "<Esc><cmd> setlocal nospell<CR>", "Disable ESP spelling" },
+    ["<F8>"] = { "<Esc><cmd> setlocal nospell<CR>", "Disable spelling" },
   },
 }
 
@@ -78,6 +78,17 @@ M.misc = {
     -- Visual shifting (does not exit visual mode)
     [">"] = { ">gv", "Does not exit visual mode" },
     ["<"] = { "<gv", "Does not exit visual mode" },
+  },
+}
+
+M.gitsigns = {
+  n= {
+    ["<leader>hb"] = {
+      function()
+        require("gitsigns").blame_line()
+      end,
+      "Blame line",
+    },
   },
 }
 
