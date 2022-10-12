@@ -98,7 +98,7 @@ return {
     end,
   },
   ["nvim-telescope/telescope-media-files.nvim"] = {
-    disable = op_sys.osx_platform(),
+    disable = op_sys.OSX(),
     after = "telescope.nvim",
     config = function()
       require("telescope").setup {
@@ -120,7 +120,7 @@ return {
   },
   -- macos specific plugin
   ["mrjones2014/dash.nvim"] = {
-    disable = op_sys.linux_platform(),
+    disable = op_sys.LINUX(),
     run = "make install",
     after = "telescope.nvim",
   },
