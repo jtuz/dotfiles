@@ -25,6 +25,7 @@ M.telescope = {
     ["<leader>gr"] = { "<cmd> Telescope lsp_references<CR>","  find document references" },
     ["<leader>dg"] = { "<cmd> Telescope diagnostics<CR>","  document diagnostics" },
     ["<leader>fg"] = { "<cmd> Telescope git_files<CR>", "  find git files" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status<CR>", "  git status" },
     ["<leader>fp"] = { "<cmd> Telescope media_files<CR>", "  find media" },
     ["<leader>mk"] = { "<cmd> Telescope marks<CR>",  "車 Marks" },
     ["<leader>tl"] = { "<cmd> TodoTelescope<CR>",  "  Todo Telescope" },
@@ -48,7 +49,6 @@ M.spelling = {
 
 M.fugitive = {
   n = {
-    ["<leader>gs"] = { "<cmd> Git <CR>", "  git status" },
     ["<leader>gb"] = { "<cmd> Git blame <CR>", "  git blame" },
     ["<leader>gh"] = { "<cmd> diffget //2 <CR>", "  diffget //2" },
     ["<leader>gl"] = { "<cmd> diffget //3 <CR>", "  diffget //3" },

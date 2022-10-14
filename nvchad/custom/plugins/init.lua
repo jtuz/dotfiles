@@ -36,6 +36,11 @@ return {
           return require "custom.ui.statusline"
         end,
       },
+      tabufline = {
+        overriden_modules = function()
+          return require "custom.ui.tabufline"
+        end,
+      }
     },
   },
   ["neovim/nvim-lspconfig"] = {
