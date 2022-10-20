@@ -31,7 +31,7 @@ return {
     override_options = {
       statusline = {
         -- default, round , slant , block , arrow
-        separator_style = "block",
+        separator_style = "default",
         overriden_modules = function()
           return require "custom.ui.statusline"
         end,

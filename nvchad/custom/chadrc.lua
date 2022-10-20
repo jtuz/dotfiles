@@ -20,6 +20,7 @@ M.ui = {
   transparency = false,
   hl_override = {
     Comment = { italic = true, fg="grey_fg" },
+    AlphaHeader = { fg = "red" },
   },
 }
 

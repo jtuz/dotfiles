@@ -92,4 +92,16 @@ M.gitsigns = {
   },
 }
 
+M.shade = {
+  n = {
+    ["<leader>ts"] = {
+      function()
+        require("shade").toggle()
+      end,
+
+      "toggle shade.nvim",
+    },
+  },
+}
+
 return M
