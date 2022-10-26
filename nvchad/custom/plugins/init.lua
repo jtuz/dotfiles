@@ -144,4 +144,12 @@ return {
       require("custom.plugins.configs").shade()
     end,
   },
+  ["yioneko/nvim-yati"] = {
+    requires = "nvim-treesitter/nvim-treesitter",
+    config = function ()
+      require("nvim-treesitter.configs").setup {
+        yati = { enable = true },
+      }
+    end
+  },
 }
