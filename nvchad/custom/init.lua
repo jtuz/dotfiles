@@ -2,7 +2,6 @@ local g = vim.g
 local opt = vim.opt
 
 local autocmd = vim.api.nvim_create_autocmd
-local new_cmd = vim.api.nvim_create_user_command
 
 ----------------Nvim providers----------------
 -- Due I use pyenv and rbenv, to avoid
@@ -49,8 +48,11 @@ opt.tabstop = 4
 -- Instead of reverting the cursor to the last position in the buffer
 -- we set it to the first line when editing a git commit message
 -- also Editor Config plugin is disabled on git commit message
+local group = vim.api.nvim_create_augroup('user_cmds', {clear = true})
+
 autocmd("FileType", {
   pattern = "gitcommit",
+  group = group,
   callback = function()
     vim.b.EditorConfig_disable = 1
     vim.cmd [[ call setpos('.', [0, 1, 1, 0]) ]]
@@ -59,7 +61,9 @@ autocmd("FileType", {
 
 autocmd("BufEnter", {
   pattern = "COMMIT_EDITMSG",
+   group = group,
   callback = function()
+    vim.b.EditorConfig_disable = 1
     vim.cmd [[ call setpos('.', [0, 1, 1, 0]) ]]
   end,
 })
@@ -100,6 +104,7 @@ autocmd("FileType", {
    end,
 })
 
-new_cmd("EnableShade", function()
-   require("shade").setup()
-end, {})
+autocmd('FileType', {
+  pattern = {'help', 'man'},
+  command = 'nnoremap <buffer> gq <cmd>quit<cr>'
+})

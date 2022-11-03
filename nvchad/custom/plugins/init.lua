@@ -137,13 +137,6 @@ return {
       }
     end,
   },
-  -- dim inactive windows
-  ["andreadev-it/shade.nvim"] = {
-    module = "shade",
-    config = function()
-      require("custom.plugins.configs").shade()
-    end,
-  },
   ["yioneko/nvim-yati"] = {
     requires = "nvim-treesitter/nvim-treesitter",
     config = function ()
