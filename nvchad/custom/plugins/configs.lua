@@ -22,6 +22,13 @@ M.nvimtree = {
 }
 
 M.treesitter = {
+  yati = {
+    enabled = true,
+    default_fallback = "auto"
+  },
+  indent = {
+    enable = false,
+  },
   ensure_installed = {
     "c",
     "lua",

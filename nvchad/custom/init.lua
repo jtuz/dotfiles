@@ -29,7 +29,7 @@ g.vista_default_executive = "ctags"
 
 ----------------Custom Settings----------------
 g.markdown_fenced_languages = { "html", "python", "ruby", "vim", "bash" }
-opt.cmdheight = 0
+-- opt.cmdheight = 0
 opt.shiftround = true
 opt.encoding = "utf-8"
 opt.backspace = "indent,eol,start"

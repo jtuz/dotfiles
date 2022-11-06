@@ -138,11 +138,7 @@ return {
     end,
   },
   ["yioneko/nvim-yati"] = {
+    tag = "*",
     requires = "nvim-treesitter/nvim-treesitter",
-    config = function ()
-      require("nvim-treesitter.configs").setup {
-        yati = { enable = true },
-      }
-    end
   },
 }
