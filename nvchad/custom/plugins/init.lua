@@ -11,7 +11,7 @@ return {
     override_options = overrides.telescope,
   },
   ["goolord/alpha-nvim"] = {
-    disable = false,
+    disable = true,
     override_options = overrides.alpha,
   },
 
