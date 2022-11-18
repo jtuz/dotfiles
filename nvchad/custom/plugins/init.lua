@@ -27,22 +27,22 @@ return {
   ["lukas-reineke/indent-blankline.nvim"] = {
     override_options = overrides.blankline,
   },
-  ["NvChad/ui"] = {
-    override_options = {
-      statusline = {
-        -- default, round , slant , block , arrow
-        separator_style = "default",
-        overriden_modules = function()
-          return require "custom.ui.statusline"
-        end,
-      },
-      tabufline = {
-        overriden_modules = function()
-          return require "custom.ui.tabufline"
-        end,
-      }
-    },
-  },
+  -- ["NvChad/ui"] = {
+  --   override_options = {
+  --     statusline = {
+  --       -- default, round , slant , block , arrow
+  --       separator_style = "default",
+  --       overriden_modules = function()
+  --         return require "custom.ui.statusline"
+  --       end,
+  --     },
+  --     tabufline = {
+  --       overriden_modules = function()
+  --         return require "custom.ui.tabufline"
+  --       end,
+  --     },
+  --   },
+  -- },
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -140,5 +140,6 @@ return {
   ["yioneko/nvim-yati"] = {
     tag = "*",
     requires = "nvim-treesitter/nvim-treesitter",
+    after = "nvim-treesitter",
   },
 }
