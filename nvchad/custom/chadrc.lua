@@ -30,6 +30,7 @@ M.ui = {
     style = "atom",
   },
   statusline = {
+    theme = "default",
     separator_style = "default", -- default/round/block/arrow
     overriden_modules = function()
       return require "custom.ui.statusline"

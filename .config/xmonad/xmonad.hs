@@ -264,6 +264,7 @@ myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "galculator" spawnCalc findCalc manageCalc
                 , NS "uno-calculator" spawnUnoCalc findUnoCalc manageUnoCalc
                 , NS "pavu-control" spawnAudioCtl findAudioCtl manageAudioCtl
+                , NS "protonvpn" spawnProtonVpnCtl findProtonVpnCtl manageProtonVpnCtl
                 ]
   where
     spawnCalc  = "galculator"
@@ -290,6 +291,14 @@ myScratchPads = [ NS "galculator" spawnCalc findCalc manageCalc
                  w = 0.4
                  t = 0.75 -h
                  l = 0.70 -w
+    spawnProtonVpnCtl  = "protonvpn"
+    findProtonVpnCtl   = className =? "Protonvpn"
+    manageProtonVpnCtl = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.8
+                 w = 0.3
+                 t = 0.85 -h
+                 l = 0.65 -w
 
 --Makes setting the spacingRaw simpler to write. The spacingRaw module adds a configurable amount of space around windows.
 mySpacing :: Integer -> l a -> XMonad.Layout.LayoutModifier.ModifiedLayout Spacing l a
