@@ -24,13 +24,14 @@ M.ui = {
     NvDashAscii= { bg="#0E2738", fg="red" },
     -- NvDashAscii= { bg="black2", fg = "red" },
     NvDashButtons= { bg="#17415E", fg="white" },
+    CursorLine = { bg="black2" },
   },
   cmp = {
     lspkind_text = false,
     style = "atom",
   },
   statusline = {
-    theme = "default",
+    theme = "vscode_colored",
     separator_style = "default", -- default/round/block/arrow
     overriden_modules = function()
       return require "custom.ui.statusline"

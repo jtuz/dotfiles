@@ -1,4 +1,4 @@
-local modules = require("nvchad_ui.statusline.default")
+local modules = require("nvchad_ui.statusline.vscode_colored")
 
 local navic = function ()
   if vim.o.columns < 140 or not package.loaded["nvim-navic"] then
