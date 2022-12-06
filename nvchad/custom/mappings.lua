@@ -5,6 +5,7 @@ M.disabled = {
     ["<C-s>"] = "",
     ["<C-n>"] = "",
     ["<C-c>"] = "",
+    ["<leader>b"] = "",
     -- Disable NvTerm shortcuts
     ["<A-i>"] = "",
     ["<A-h>"] = "",
@@ -41,9 +42,9 @@ M.nvimtree = {
 
 M.spelling = {
   n = {
-    ["<F6>"] = { "<Esc><cmd> setlocal spell spelllang=es<CR>", "暈  ESP spelling" },
-    ["<F7>"] = { "<Esc><cmd> setlocal spell spelllang=en<CR>", "暈  ENG spelling" },
-    ["<F8>"] = { "<Esc><cmd> setlocal nospell<CR>", "Disable spelling" },
+    ["<F2>"] = { "<Esc><cmd> setlocal spell spelllang=en<CR>", "暈  ENG spelling" },
+    ["<F3>"] = { "<Esc><cmd> setlocal spell spelllang=es<CR>", "暈  ESP spelling" },
+    ["<F4>"] = { "<Esc><cmd> setlocal nospell<CR>", "Disable spelling" },
   },
 }
 
@@ -90,6 +91,69 @@ M.gitsigns = {
       "Blame line",
     },
   },
+}
+
+M.dap = {
+  n = {
+    ["<F5>"] = {
+      function()
+        require("dap").continue()
+      end,
+      "Start Debbuging"
+    },
+    ["<F10>"] = {
+      function()
+        require("dap").step_over()
+      end,
+      "Step Over",
+    },
+    ["<F11>"] = {
+      function()
+        require("dap").step_into()
+      end,
+      "Step Into"
+    },
+    ["<F12>"] = {
+      function()
+        require("dap").step_out()
+      end,
+      "Step Out"
+    },
+    ["<leader>b"] = {
+      function()
+        require("dap").toggle_breakpoint()
+      end,
+      "Toggle Breakpoint",
+    },
+    ["<leader>B"] = {
+      function()
+        require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+      end,
+      "Set Breakpoint Condition",
+    },
+    ["<leader>lp"] = {
+      function()
+        require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+      end,
+      "Log point message",
+    },
+    ["<leader>repl"] = {
+      function()
+        require("dap").repl.open()
+      end,
+      "Open REPL",
+    },
+    ["<leader>du"] = {
+      function()
+        require("dapui").toggle()
+      end
+    },
+    ["<leader>xxx"] = {
+      function()
+        require("dapui").eval()
+      end,
+    },
+  }
 }
 
 return M

@@ -142,4 +142,17 @@ return {
     requires = "nvim-treesitter/nvim-treesitter",
     after = "nvim-treesitter",
   },
+  ["rcarriga/nvim-dap-ui"] = {
+    requires = "mfussenegger/nvim-dap",
+    config = function()
+      require("dapui").setup()
+    end,
+  },
+  ["mfussenegger/nvim-dap-python"] = {
+    requires = "rcarriga/nvim-dap-ui",
+    config = function()
+      local mason_venv_path = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup(mason_venv_path)
+    end,
+  },
 }

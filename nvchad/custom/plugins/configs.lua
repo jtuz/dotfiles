@@ -94,20 +94,6 @@ M.blankline = {
   },
 }
 
-M.shade = function()
-  local present, shade = pcall(require, "shade")
-
-  if not present then
-    return
-  end
-
-  shade.setup {
-    overlay_opacity = 50,
-    opacity_step = 1,
-    exclude_filetypes = { "NvimTree" },
-  }
-end
-
 M.mason = {
   ensure_installed = {
     -- lua stuff
@@ -125,6 +111,7 @@ M.mason = {
     "flake8",
     "isort",
     "black",
+    "debugpy",
 
     -- Golang
     "gopls",
