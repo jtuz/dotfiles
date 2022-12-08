@@ -146,12 +146,14 @@ M.dap = {
     ["<leader>du"] = {
       function()
         require("dapui").toggle()
-      end
+      end,
+      "Toggle DAP GUI",
     },
-    ["<leader>xxx"] = {
+    ["<leader>vl"] = {
       function()
         require("dapui").eval()
       end,
+      "Evaluate expression",
     },
   }
 }
