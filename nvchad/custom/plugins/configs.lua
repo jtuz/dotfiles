@@ -23,7 +23,7 @@ M.nvimtree = {
 
 M.treesitter = {
   yati = {
-    enabled = true,
+    enable = true,
     default_fallback = "auto"
   },
   indent = {
