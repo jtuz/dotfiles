@@ -30,6 +30,7 @@ M.treesitter = {
     enable = false,
   },
   ensure_installed = {
+    "help",
     "c",
     "lua",
     "dockerfile",
@@ -80,6 +81,8 @@ M.alpha = {
 }
 
 M.blankline = {
+  char = '┊',
+  show_trailing_blankline_indent = false,
   filetype_exclude = {
     "help",
     "terminal",
