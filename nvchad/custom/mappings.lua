@@ -22,37 +22,37 @@ M.disabled = {
 
 M.telescope = {
   n = {
-    ["<leader>sy"] = { "<cmd> Telescope lsp_document_symbols<CR>", "  find document symbols" },
-    ["<leader>gr"] = { "<cmd> Telescope lsp_references<CR>","  find document references" },
-    ["<leader>dg"] = { "<cmd> Telescope diagnostics<CR>","  document diagnostics" },
-    ["<leader>fg"] = { "<cmd> Telescope git_files<CR>", "  find git files" },
-    ["<leader>gs"] = { "<cmd> Telescope git_status<CR>", "  git status" },
-    ["<leader>fp"] = { "<cmd> Telescope media_files<CR>", "  find media" },
-    ["<leader>mk"] = { "<cmd> Telescope marks<CR>",  "車 Marks" },
-    ["<leader>tl"] = { "<cmd> TodoTelescope<CR>",  "  Todo Telescope" },
+    ["<leader>sy"] = { "<cmd> Telescope lsp_document_symbols<CR>", "Find document symbols" },
+    ["<leader>gr"] = { "<cmd> Telescope lsp_references<CR>","Find document references" },
+    ["<leader>dg"] = { "<cmd> Telescope diagnostics<CR>","Document diagnostics" },
+    ["<leader>fg"] = { "<cmd> Telescope git_files<CR>", "Find git files" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status<CR>", "Git status" },
+    ["<leader>fp"] = { "<cmd> Telescope media_files<CR>", "Find media" },
+    ["<leader>mk"] = { "<cmd> Telescope marks<CR>",  "Marks" },
+    ["<leader>tl"] = { "<cmd> TodoTelescope<CR>",  "Todo Telescope" },
   },
 }
 
 M.nvimtree = {
    n = {
     -- toggle
-    ["<leader>ft"] = { "<cmd> NvimTreeToggle <CR>", "   toggle nvimtree" },
+    ["<leader>ft"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
    },
 }
 
 M.spelling = {
   n = {
-    ["<F2>"] = { "<Esc><cmd> setlocal spell spelllang=en<CR>", "暈  ENG spelling" },
-    ["<F3>"] = { "<Esc><cmd> setlocal spell spelllang=es<CR>", "暈  ESP spelling" },
+    ["<F2>"] = { "<Esc><cmd> setlocal spell spelllang=en<CR>", "ENG spelling" },
+    ["<F3>"] = { "<Esc><cmd> setlocal spell spelllang=es<CR>", "ESP spelling" },
     ["<F4>"] = { "<Esc><cmd> setlocal nospell<CR>", "Disable spelling" },
   },
 }
 
 M.fugitive = {
   n = {
-    ["<leader>gb"] = { "<cmd> Git blame <CR>", "  git blame" },
-    ["<leader>gh"] = { "<cmd> diffget //2 <CR>", "  diffget //2" },
-    ["<leader>gl"] = { "<cmd> diffget //3 <CR>", "  diffget //3" },
+    ["<leader>gb"] = { "<cmd> Git blame <CR>", "git blame" },
+    ["<leader>gh"] = { "<cmd> diffget //2 <CR>", "diffget //2" },
+    ["<leader>gl"] = { "<cmd> diffget //3 <CR>", "diffget //3" },
   },
 }
 
@@ -64,7 +64,7 @@ M.misc = {
     ["<Left>"] = { "<NOP>", "Disable Left" },
     ["<Right>"] = { "<NOP>", "Disable Right" },
     -- Personal Tools
-    ["<leader>jt"] = { "<Esc>:%!jq .<CR><Esc><cmd> set filetype=json<CR>", "  Format Json" },
+    ["<leader>jt"] = { "<Esc>:%!jq .<CR><Esc><cmd> set filetype=json<CR>", "Format Json" },
   },
 
   i = {
@@ -73,6 +73,11 @@ M.misc = {
     ["<Down>"] = { "<NOP>", "Disable Down" },
     ["<Left>"] = { "<NOP>", "Disable Left" },
     ["<Right>"] = { "<NOP>", "Disable Right" },
+    -- navigate within insert mode                                                                              │    │
+    ["<C-h>"] = { "<Left>", "move left" },
+    ["<C-l>"] = { "<Right>", "move right" },
+    ["<C-j>"] = { "<Down>", "move down" },
+    ["<C-k>"] = { "<Up>", "move up" },
   },
 
   v = {
