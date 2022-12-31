@@ -82,7 +82,7 @@ import XMonad.Util.SpawnOnce
 import Colors.DoomOne
 
 myFont :: String
-myFont = "xft:JetBrains Mono Medium Nerd Font Complete:regular:size=10:antialias=true:hinting=true"
+myFont = "xft:JetBrains Mono Medium Nerd Font Complete:regular:size=12:antialias=true:hinting=true"
 
 myModMask :: KeyMask
 myModMask = mod4Mask        -- Sets modkey to super/windows key
@@ -411,7 +411,7 @@ myLayoutHook = avoidStruts
 
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
 -- myWorkspaces = [" trm ", " web ", " dev ", " com ", " wrk ", " media ", " etc ", " vid ", " gfx "]
-myWorkspaces = [" \xf120  ", " \xf0ac  ", " \xf121  ", " \xf086  ", " \xf085  ", " \xf025  ", " \xf069  ", " vid ", " gfx "]
+myWorkspaces = [" \xf120  ", " \xf0ac  ", " \xf121  ", " \xf086  ", " \xf085  ", " \xf025  ", " \xf069  "]
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..] -- (,) == \x y -> (x,y)
 
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"
@@ -436,7 +436,6 @@ myManageHook = composeAll
   , className =? "Yad"             --> doCenterFloat
   , title =? "Oracle VM VirtualBox Manager"  --> doFloat
   , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
-  , title =? "Ferdi"               --> doShift ( myWorkspaces !! 3 )
   , className =? "Kitty"           --> doShift ( myWorkspaces !! 0 )
   , className =? "Brave-browser"   --> doShift ( myWorkspaces !! 2 )
   , className =? "Spotify"         --> doShift ( myWorkspaces !! 5 )
@@ -480,9 +479,7 @@ myKeys c =
   , ("M-4", addName "Switch to workspace 4"    $ (windows $ W.greedyView $ myWorkspaces !! 3))
   , ("M-5", addName "Switch to workspace 5"    $ (windows $ W.greedyView $ myWorkspaces !! 4))
   , ("M-6", addName "Switch to workspace 6"    $ (windows $ W.greedyView $ myWorkspaces !! 5))
-  , ("M-7", addName "Switch to workspace 7"    $ (windows $ W.greedyView $ myWorkspaces !! 6))
-  , ("M-8", addName "Switch to workspace 8"    $ (windows $ W.greedyView $ myWorkspaces !! 7))
-  , ("M-9", addName "Switch to workspace 9"    $ (windows $ W.greedyView $ myWorkspaces !! 8))]
+  , ("M-7", addName "Switch to workspace 7"    $ (windows $ W.greedyView $ myWorkspaces !! 6))]
 
   ^++^ subKeys "Send window to workspace"
   [ ("M-S-1", addName "Send to workspace 1"    $ (windows $ W.shift $ myWorkspaces !! 0))
@@ -491,9 +488,7 @@ myKeys c =
   , ("M-S-4", addName "Send to workspace 4"    $ (windows $ W.shift $ myWorkspaces !! 3))
   , ("M-S-5", addName "Send to workspace 5"    $ (windows $ W.shift $ myWorkspaces !! 4))
   , ("M-S-6", addName "Send to workspace 6"    $ (windows $ W.shift $ myWorkspaces !! 5))
-  , ("M-S-7", addName "Send to workspace 7"    $ (windows $ W.shift $ myWorkspaces !! 6))
-  , ("M-S-8", addName "Send to workspace 8"    $ (windows $ W.shift $ myWorkspaces !! 7))
-  , ("M-S-9", addName "Send to workspace 9"    $ (windows $ W.shift $ myWorkspaces !! 8))]
+  , ("M-S-7", addName "Send to workspace 7"    $ (windows $ W.shift $ myWorkspaces !! 6))]
 
   ^++^ subKeys "Move window to WS and go there"
   [ ("M-S-<Page_Up>", addName "Move window to next WS"   $ shiftTo Next nonNSP >> moveTo Next nonNSP)
