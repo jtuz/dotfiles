@@ -411,7 +411,7 @@ myLayoutHook = avoidStruts
 
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
 -- myWorkspaces = [" trm ", " web ", " dev ", " com ", " wrk ", " media ", " etc ", " vid ", " gfx "]
-myWorkspaces = [" \xf120  ", " \xf0ac  ", " \xf121  ", " \xf086  ", " \xf085  ", " \xf025  ", " \xf069  "]
+myWorkspaces = [" \xf120 ", " \xf0ac ", " \xf121 ", " \xf086 ", " \xf085 ", " \xf025 ", " \xf069 "]
 myWorkspaceIndices = M.fromList $ zipWith (,) myWorkspaces [1..] -- (,) == \x y -> (x,y)
 
 clickable ws = "<action=xdotool key super+"++show i++">"++ws++"</action>"

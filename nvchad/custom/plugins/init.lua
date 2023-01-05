@@ -3,7 +3,6 @@
 -- https://nvchad.github.io/config/walkthrough
 local op_sys = require "custom.utils"
 local overrides = require "custom.plugins.configs"
-local test = require
 
 return {
   ----------- Override defaults ------------
