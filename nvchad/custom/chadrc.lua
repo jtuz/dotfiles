@@ -16,7 +16,7 @@ M.options = {
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
   theme_toggle = { "gruvchad", "tokyonight" },
-  theme = "oxocarbon",
+  theme = "oceanic-next",
   transparency = false,
   hl_override = {
     Comment = { italic=true, fg="grey_fg" },
@@ -31,7 +31,7 @@ M.ui = {
     style = "atom",
   },
   statusline = {
-    theme = "vscode_colored",
+    theme = "default", -- default/vscode/vscode_colored/minimal
     separator_style = "default", -- default/round/block/arrow
     overriden_modules = function()
       return require "custom.ui.statusline"
