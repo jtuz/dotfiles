@@ -6,6 +6,7 @@ M.disabled = {
     ["<C-n>"] = "",
     ["<C-c>"] = "",
     ["<leader>b"] = "",
+    ["<leader>gt"] = "",
     -- Disable NvTerm shortcuts
     ["<A-i>"] = "",
     ["<A-h>"] = "",

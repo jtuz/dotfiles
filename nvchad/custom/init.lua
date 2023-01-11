@@ -74,7 +74,7 @@ autocmd("FileType", {
 
 autocmd("BufEnter", {
   pattern = "COMMIT_EDITMSG",
-   group = group,
+  group = group,
   callback = function()
     vim.b.EditorConfig_disable = 1
     vim.cmd [[ call setpos('.', [0, 1, 1, 0]) ]]

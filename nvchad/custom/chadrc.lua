@@ -16,15 +16,12 @@ M.options = {
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
   theme_toggle = { "gruvchad", "tokyonight" },
-  theme = "oceanic-next",
+  theme = "nightfox",
   transparency = false,
   hl_override = {
     Comment = { italic=true, fg="grey_fg" },
-    -- AlphaHeader = { fg = "red" },
     NvDashAscii= { bg="#0E2738", fg="red" },
-    -- NvDashAscii= { bg="black2", fg = "red" },
     NvDashButtons= { bg="#17415E", fg="white" },
-    -- CursorLine = { bg="black2" },
   },
   cmp = {
     lspkind_text = false,

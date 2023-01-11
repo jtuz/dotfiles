@@ -120,6 +120,7 @@ M.mason = {
 
     -- Golang
     "gopls",
+    "goimports",
   },
 }
 
