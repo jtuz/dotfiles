@@ -4,8 +4,8 @@
 -- Dependencies: otf-font-awesome ttf-mononoki ttf-ubuntu-font-family trayer
 -- Also depends on scripts from dtos-local-bin from the dtos-core-repo.
 
-Config { font            = "xft:Iosevka Nerd Font:weight=bold:pixelsize=12:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:Iosevka Nerd Font:pixelsize=12:antialias=true:hinting=true"
+Config { font            = "xft:JetBrainsMono Nerd Font:weight=bold:pixelsize=13:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Iosevka Nerd Font:pixelsize=13:antialias=true:hinting=true"
                            , "xft:Font Awesome 6 Free Solid:pixelsize=13"
                            , "xft:Font Awesome 6 Brands:pixelsize=13"
                            ]

@@ -101,6 +101,8 @@ M.blankline = {
 
 M.mason = {
   ensure_installed = {
+    -- Markdown
+    "marksman",
     -- lua stuff
     "lua-language-server",
     "stylua",

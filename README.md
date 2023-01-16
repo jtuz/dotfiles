@@ -3,9 +3,8 @@
 * Irssi
 * Github token
 * Some `.gitconfig` settings
-* `.muttrc`
 
-## Services and repos needed
+## Requirements
 
 1. [Tmux](https://github.com/gpakosz/.tmux)
 2. [Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
@@ -15,7 +14,7 @@
 6. [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
 7. [Kitty Themes](https://github.com/dexpota/kitty-themes)
 8. [Ag](https://github.com/ggreer/the_silver_searcher)
-9. [RipGrep](https://github.com/BurntSushi/ripgrep) (Optional)
+9. [RipGrep](https://github.com/BurntSushi/ripgrep)
 12. [Flameshoot](https://github.com/flameshot-org/flameshot)
 12. [Conky](https://github.com/brndnmtthws/conky)
 13. [Rofi Launcher](https://github.com/davatorium/rofi)
@@ -31,21 +30,23 @@
 22. [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
 
 
-## Enable italics on Kitty terminal and tmux
+## Enable italics on Kitty terminal using tmux
 
 [based on this reddit post] (https://www.reddit.com/r/vim/comments/24g8r8/italics_in_terminal_vim_and_tmux/)
 
 * Check if italic font is supported:
 ```
-$ echo -e "\e[3mitalic\e[23m"
+echo -e "\e[3mitalic\e[23m"
 ```
+
 * Also check:
 ```
-$ infocmp $TERM | grep sitm
+infocmp $TERM | grep sitm
         sgr0=\E(B\E[m, sitm=\E[3m, smacs=\E(0, smam=\E[?7h,
-$ infocmp $TERM | grep ritm
+infocmp $TERM | grep ritm
         ri=\EM, rin=\E[%p1%dT, ritm=\E[23m, rmacs=\E(B,
 ```
+
 If nothing is returned, then here is the step to enable it:
 1. Create the file *screen-256color.terminfo* with the following content:
 ```
@@ -65,7 +66,7 @@ screen-256color|screen with 256 colors and italic,
 ```
 2. Execute the command:
 ```
-$ tic screen-256color.terminfo
+tic screen-256color.terminfo
 ```
 3. Add the following lines to *.vimrc*:
 ```
@@ -73,7 +74,8 @@ set t_ZH=^[[3m
 set t_ZR=^[[23m
 ```
 **NOTE:** *^[* must be entered with *\<C-V\>\<Esc\>*
-3. Add the following line to *.tmux.conf*:
+
+4. Add the following line to *.tmux.conf*:
 ```
 set -g default-terminal "screen-256color"
 ```
@@ -85,15 +87,16 @@ $ env TERM=screen-256color tmux
 ## Installing I3WM & Xmonad in Arch Linux based distributions
 
 ```bash
-yay -S fontconfig lib32-fontconfig ttf-roboto-fontconfig
-sudo pacman -S i3
-sudo pacman -S i3-wm i3lock i3status
-sudo pacman -S lua conky blueman arandr lxappearance nitrogen xorg-xrandr redshift acpi parcellite
-yay -y i3blocks
-yay -y i3-gaps  # this will remove i3-wm
-yay -S freetype2 cairo
-sudo pacman xmonad xmonad-contrib xmonad-utils xmobar xmonad-log
-yay -S picom-ibhagwan-git siji-git ttf-unifont xorg-fonts-misc ttf-font-awesome xscreensaver trayer-srg
+# fontconfig stuff
+yay -S fontconfig lib32-fontconfig ttf-roboto-fontconfig nerd-fonts-fontconfig
+yay -S freetype2 lib32-freetype2 cairo siji-git ttf-unifont xorg-fonts-misc ttf-font-awesome
+# another tools
+yay -S picom-ibhagwan-git xscreensaver trayer-srg
+yay -S lua conky blueman arandr lxappearance nitrogen xorg-xrandr redshift acpi parcellite
+# i3 stuff
+sudo pacman -S i3 i3-gaps i3lock i3status i3blocks
+# Xmonad stuff
+sudo pacman -S xmonad xmonad-contrib xmonad-utils xmobar xmonad-log
 ```
 
 ## Credits
