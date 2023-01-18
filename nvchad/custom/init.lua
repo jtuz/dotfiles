@@ -2,17 +2,24 @@ local g = vim.g
 local opt = vim.opt
 
 local autocmd = vim.api.nvim_create_autocmd
-require('dap.ext.vscode').load_launchjs(".nvim/launch.json", nil)
+local ext_present, dap_extensions = pcall(require, "dap.ext.vscode")
+local dap_present, dap = pcall(require, "dap")
+local dapui_present, dapui = pcall(require, "dapui")
 
-local dap, dapui = require("dap"), require("dapui")
-dap.listeners.after.event_initialized["dapui_config"] = function()
-  dapui.open()
+if ext_present then
+  dap_extensions.load_launchjs(".nvim/launch.json", nil)
 end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
+
+if dap_present and dapui_present then
+  dap.listeners.after.event_initialized["dapui_config"] = function()
+    dapui.open()
+  end
+  dap.listeners.before.event_terminated["dapui_config"] = function()
+    dapui.close()
+  end
+  dap.listeners.before.event_exited["dapui_config"] = function()
+    dapui.close()
+  end
 end
 -- require('dap-python').test_runner = 'pytest'
 

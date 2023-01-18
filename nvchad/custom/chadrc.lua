@@ -8,7 +8,7 @@ M.options = {
   nvChad = {
     -- used for updater
     update_url = "https://github.com/jtuz/NvChad",
-    update_branch = "main",
+    update_branch = "v2.0",
   },
 }
 
@@ -16,7 +16,7 @@ M.options = {
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
   theme_toggle = { "gruvchad", "tokyonight" },
-  theme = "nightfox",
+  theme = "doomchad",
   transparency = false,
   hl_override = {
     Comment = { italic=true, fg="grey_fg" },
@@ -25,11 +25,11 @@ M.ui = {
   },
   cmp = {
     lspkind_text = false,
-    style = "atom",
+    style = "atom",-- default/flat_light/flat_dark/atom/atom_colored
   },
   statusline = {
     theme = "default", -- default/vscode/vscode_colored/minimal
-    separator_style = "default", -- default/round/block/arrow
+    separator_style = "block", -- default/round/block/arrow
     overriden_modules = function()
       return require "custom.ui.statusline"
     end,
@@ -60,6 +60,7 @@ M.ui = {
         "⠀⠀⠈⠻⢿⣿⣿⣟⣯⣿⣿⣻⣿⣿⡿⣿⣽⣿⡾⣿⡾⣷⣿⢾⣿⣽⢿⡾⠛⠀⠀⠀",
         "⠀⠀⠀⠀⠀⠉⠛⠿⠿⣿⡿⣿⣻⣷⣿⣿⢿⣾⡿⣟⣿⡿⣾⠿⠷⠛⠉⠀⠀⠀⠀⠀",
     },
+
     buttons = {
       { "  Find File", "Spc f f", "Telescope find_files" },
       { "  Recent Files", "Spc f o", "Telescope oldfiles" },

@@ -1,5 +1,6 @@
 local modules = require("nvchad_ui.statusline.default")
 local config = require("core.utils").load_config().ui.statusline
+local op_sys = require("custom.utils")
 local sep_style = config.separator_style
 
 local default_sep_icons = {
@@ -26,7 +27,13 @@ return {
       return modules.LSP_progress() .. navic()
     end,
     cursor_position = function()
-      local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. " "
+      local os_icon = ""
+      if op_sys.LINUX() then
+        os_icon = " "
+      elseif op_sys.OSX() then
+        os_icon = " "
+      end
+      local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. os_icon
       local text = vim.o.columns > 140 and "%l:%c" or ""
       return left_sep .. "%#St_Pos_txt# " .. text .. " "
     end

@@ -1,21 +1,13 @@
--- NOTE: we heavily suggest using Packer's lazy loading (with the 'event','cmd' fields)
--- see: https://github.com/wbthomason/packer.nvim
 -- https://nvchad.github.io/config/walkthrough
 local op_sys = require "custom.utils"
 local overrides = require "custom.plugins.configs"
 
 return {
   ----------- Override defaults ------------
-  --
   ["nvim-telescope/telescope.nvim"] = {
     override_options = overrides.telescope,
   },
-  ["goolord/alpha-nvim"] = {
-    disable = true,
-    override_options = overrides.alpha,
-  },
-
-  ["kyazdani42/nvim-tree.lua"] = {
+  ["nvim-tree/nvim-tree.lua"] = {
     override_options = overrides.nvimtree,
   },
   ["nvim-treesitter/nvim-treesitter"] = {
@@ -27,22 +19,6 @@ return {
   ["lukas-reineke/indent-blankline.nvim"] = {
     override_options = overrides.blankline,
   },
-  -- ["NvChad/ui"] = {
-  --   override_options = {
-  --     statusline = {
-  --       -- default, round , slant , block , arrow
-  --       separator_style = "default",
-  --       overriden_modules = function()
-  --         return require "custom.ui.statusline"
-  --       end,
-  --     },
-  --     tabufline = {
-  --       overriden_modules = function()
-  --         return require "custom.ui.tabufline"
-  --       end,
-  --     },
-  --   },
-  -- },
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
@@ -53,41 +29,60 @@ return {
   ["folke/which-key.nvim"] = false,
   ------------ Custom plugins ---------------
   ["tpope/vim-surround"] = {
-    keys = { "c", "d", "y" },
+    lazy = false,
+    -- keys = { "c", "d", "y" },
   },
-  ["tpope/vim-abolish"] = {},
-  ["tpope/vim-repeat"] = {},
-  ["tpope/vim-fugitive"] = {},
-  ["tpope/vim-sleuth"] = {},
-  ["tpope/vim-projectionist"] = {},
-  ["kshenoy/vim-signature"] = {},
-  ["liuchengxu/vista.vim"] = {},
-  ["tommcdo/vim-exchange"] = {},
-  ["matze/vim-move"] = {},
+  ["tpope/vim-abolish"] = {
+    lazy = false,
+  },
+  ["tpope/vim-repeat"] = {
+    lazy = false,
+  },
+  ["tpope/vim-fugitive"] = {
+    lazy = false,
+  },
+  ["tpope/vim-sleuth"] = {
+    lazy = false,
+  },
+  ["kshenoy/vim-signature"] = {
+    lazy = false,
+  },
+  ["liuchengxu/vista.vim"] = {
+    lazy = false,
+  },
+  ["tommcdo/vim-exchange"] = {
+    lazy = false,
+  },
+  ["matze/vim-move"] = {
+    lazy = false,
+  },
   ["mg979/vim-visual-multi"] = {
     branch = "master",
+    lazy = false,
   },
-  ["godlygeek/tabular"] = {},
-  ["editorconfig/editorconfig-vim"] = {},
+  ["godlygeek/tabular"] = {
+    lazy = false,
+  },
+  ["editorconfig/editorconfig-vim"] = {
+    lazy = false,
+  },
   ["karb94/neoscroll.nvim"] = {
-    opt = true,
+    lazy = true,
     event = "WinScrolled",
     config = function()
       require("neoscroll").setup()
     end,
   },
   ["SmiteshP/nvim-navic"] = {
-    requires = "neovim/nvim-lspconfig",
-  },
-  ["folke/todo-comments.nvim"] = {
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require("todo-comments").setup {}
-    end,
+    dependencies = {
+      { "neovim/nvim-lspconfig" },
+    },
   },
   ["nvim-telescope/telescope-fzf-native.nvim"] = {
-    run = "make",
-    after = "telescope.nvim",
+    build = "make",
+    dependencies = {
+      { "nvim-telescope/telescope.nvim" },
+    },
     config = function()
       require("telescope").setup {
         extensions = {
@@ -103,8 +98,10 @@ return {
     end,
   },
   ["nvim-telescope/telescope-media-files.nvim"] = {
-    disable = op_sys.OSX(),
-    after = "telescope.nvim",
+    enabled = op_sys.LINUX(),
+    dependencies = {
+      { "nvim-telescope/telescope.nvim" },
+    },
     config = function()
       require("telescope").setup {
         extensions = {
@@ -118,18 +115,16 @@ return {
     end,
   },
   ["jose-elias-alvarez/null-ls.nvim"] = {
-    after = "nvim-lspconfig",
+    dependencies = {
+      { "neovim/nvim-lspconfig" },
+    },
+    lazy = false,
     config = function()
       require("custom.plugins.null-ls").setup()
     end,
   },
-  -- macos specific plugin
-  ["mrjones2014/dash.nvim"] = {
-    disable = op_sys.LINUX(),
-    run = "make install",
-    after = "telescope.nvim",
-  },
   ["natecraddock/sessions.nvim"] = {
+    lazy = false,
     config = function()
       require("sessions").setup {
         events = { "WinEnter" },
@@ -138,24 +133,30 @@ return {
     end,
   },
   ["yioneko/nvim-yati"] = {
-    tag = "*",
-    requires = "nvim-treesitter/nvim-treesitter",
-    after = "nvim-treesitter",
+    version = "*",
+    dependencies = {
+      { "nvim-treesitter/nvim-treesitter" },
+    },
   },
   ["rcarriga/nvim-dap-ui"] = {
-    requires = "mfussenegger/nvim-dap",
+    dependencies = {
+      { "mfussenegger/nvim-dap" },
+    },
     config = function()
       require("dapui").setup()
     end,
   },
   ["mfussenegger/nvim-dap-python"] = {
-    requires = "rcarriga/nvim-dap-ui",
+    dependencies = {
+      { "rcarriga/nvim-dap-ui" },
+    },
     config = function()
       local mason_venv_path = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/bin/python"
       require("dap-python").setup(mason_venv_path)
     end,
   },
   ["folke/noice.nvim"] = {
+    lazy = false,
     config = function ()
       require("noice").setup({
         lsp = {
@@ -190,9 +191,11 @@ return {
         },
       })
     end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
+    dependencies = {
+      {
+        "MunifTanjim/nui.nvim",
+        "rcarriga/nvim-notify",
+      },
     }
   }
 }
