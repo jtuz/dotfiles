@@ -26,9 +26,9 @@ end
 local platform = function ()
   local os_icon = " "
   if op_sys.LINUX() then
-    os_icon = " "
+    os_icon = ""
   elseif op_sys.OSX() then
-    os_icon = " "
+    os_icon = ""
   end
 
   return  "%#St_cwd_text#" .. os_icon
@@ -52,7 +52,7 @@ return {
       return modules.LSP_progress() .. navic()
     end,
     cwd = function ()
-      return modules.cwd() .. " " .. platform() .. " "
+      return modules.cwd() .. "" .. platform() .. " "
     end,
     cursor_position = function()
       local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. " "
