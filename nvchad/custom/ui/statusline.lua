@@ -24,11 +24,11 @@ local navic = function ()
 end
 
 local platform = function ()
-  local os_icon = " "
+  local os_icon = ""
   if op_sys.LINUX() then
     os_icon = ""
   elseif op_sys.OSX() then
-    os_icon = ""
+    os_icon = " " -- Note: the previous space is needed in Macos platform
   end
 
   return  "%#St_cwd_text#" .. os_icon
