@@ -1,4 +1,3 @@
--- https://nvchad.github.io/config/walkthrough
 local op_sys = require "custom.utils"
 local overrides = require "custom.plugins.configs"
 
@@ -197,5 +196,17 @@ return {
         "rcarriga/nvim-notify",
       },
     }
+  },
+  ["simrat39/symbols-outline.nvim"] = {
+    lazy = false,
+    dependencies = {
+      { "neovim/nvim-lspconfig" },
+    },
+    config = function ()
+      require("symbols-outline").setup({
+        show_numbers = true,
+        show_relative_numbers = true,
+      })
+    end
   }
 }
