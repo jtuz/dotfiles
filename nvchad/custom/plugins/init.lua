@@ -43,8 +43,20 @@ return {
   ["tpope/vim-sleuth"] = {
     lazy = false,
   },
-  ["kshenoy/vim-signature"] = {
+  ["chentoast/marks.nvim"] = {
     lazy = false,
+    config = function ()
+      require("marks").setup(
+        {
+          builtin_marks = { ".", "<", ">", "^" },
+          mappings = {
+            next = "]'",
+            prev = "['",
+            delete_buf = "m<space>",
+          }
+        }
+      )
+    end
   },
   ["liuchengxu/vista.vim"] = {
     lazy = false,
