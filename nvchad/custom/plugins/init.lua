@@ -74,7 +74,7 @@ return {
   ["godlygeek/tabular"] = {
     lazy = false,
   },
-  ["editorconfig/editorconfig-vim"] = {
+  ["gpanders/editorconfig.nvim"] = {
     lazy = false,
   },
   ["karb94/neoscroll.nvim"] = {

@@ -36,11 +36,6 @@ g.ruby_host_prog = "/usr/bin/ruby"
 -- Disable providers we do not give a shit about
 g.loaded_perl_provider = 0
 
-----------------Plugins Settings----------------
--- Editorconfig
-g.EditorConfig_exclude_patterns = { "fugitive://.*", "scp://.*", "fzf://.*" }
-g.EditorConfig_max_line_indicator = "line"
-
 -- Vim Move by matze
 g.move_key_modifier = "A"
 g.move_key_modifier_visualmode = "A"
@@ -58,6 +53,7 @@ opt.wrap = false -- Do not wrap long lines
 opt.list = true
 opt.listchars = { eol = "↲", tab = "» ", trail = "·", extends = "▸", nbsp = "." }
 opt.autoindent = true
+opt.colorcolumn = "+1"
 
 -- Override NvChad default settings
 opt.relativenumber = true

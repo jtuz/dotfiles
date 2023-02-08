@@ -30,13 +30,11 @@ M.telescope = {
     ["<leader>gs"] = { "<cmd> Telescope git_status<CR>", "Git status" },
     ["<leader>fp"] = { "<cmd> Telescope media_files<CR>", "Find media" },
     ["<leader>mk"] = { "<cmd> Telescope marks<CR>",  "Marks" },
-    ["<leader>tl"] = { "<cmd> TodoTelescope<CR>",  "Todo Telescope" },
   },
 }
 
 M.nvimtree = {
    n = {
-    -- toggle
     ["<leader>ft"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
    },
 }
@@ -65,8 +63,7 @@ M.misc = {
     ["<Left>"] = { "<NOP>", "Disable Left" },
     ["<Right>"] = { "<NOP>", "Disable Right" },
     -- Personal Tools
-    ["<leader>jt"] = { "<Esc>:%!jq .<CR><Esc><cmd> set filetype=json<CR>", "Format Json" },
-    -- symbols Outline
+    ["<leader>jq"] = { "<Esc>:%!jq .<CR><Esc><cmd> set filetype=json<CR>", "Format Json" },
     ["<leader>so"] = { "<cmd> SymbolsOutline<CR>", "Symbols Outline" }
   },
 
