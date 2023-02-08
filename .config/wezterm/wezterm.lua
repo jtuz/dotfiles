@@ -2,11 +2,34 @@ local wezterm = require("wezterm")
 
 return {
 	color_scheme = "Everblush",
-	font_size = 10.2,
+	freetype_load_target = 'Light',
+	freetype_render_target = 'HorizontalLcd',
+	font_size = 12.6,
 	font = wezterm.font_with_fallback({
+		-- {
+		-- 	family = "JetBrainsMono Nerd Font Mono",
+		-- 	weight = "Medium",
+		-- 	italic = false,
+		-- 	harfbuzz_features = {
+		-- 		"zero",
+		-- 		"ss01",
+		-- 		"ss02",
+		-- 		"ss03",
+		-- 		"ss04",
+		-- 		"ss05",
+		-- 		"ss07",
+		-- 		"ss08",
+		-- 		"cv30",
+		-- 		"cv31",
+		-- 		"cv25",
+		-- 		"cv26",
+		-- 		"cv32",
+		-- 		"onum",
+		-- 	},
+		-- },
 		{
 			family = "Fira Code",
-			weight = "Medium",
+			weight = "DemiBold",
 			italic = false,
 			harfbuzz_features = {
 				"zero",
@@ -24,13 +47,12 @@ return {
 				"cv32",
 				"onum",
 			},
-		},
-		"JetBrains Mono Medium Nerd Font Complete",
+		}
 	}),
 	window_background_opacity = 0.9,
 	window_frame = {
 		font = wezterm.font({ family = "Roboto", weight = "Medium" }),
-		font_size = 10,
+		font_size = 12.8,
 	},
 	window_padding = {
 		left = 2,
@@ -40,7 +62,6 @@ return {
 	},
 	use_dead_keys = true,
 	audible_bell = "Disabled",
-	dpi = 100,
 	leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 },
 	keys = {
 		{ key = "C", mods = "CTRL", action = wezterm.action.CopyTo("Clipboard") },
