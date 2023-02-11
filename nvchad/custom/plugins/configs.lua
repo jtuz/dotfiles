@@ -1,7 +1,7 @@
 local M = {}
 
 M.nvimtree = {
-  update_cwd = false,
+  sync_root_with_cwd = false,
   git = {
     enable = true,
   },
