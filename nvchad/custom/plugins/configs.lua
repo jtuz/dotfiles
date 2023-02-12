@@ -102,7 +102,7 @@ M.mason = {
 }
 
 M.telescope = {
-  defaults = {
+ defaults = {
     preview = {
       timeout = 750,
     },

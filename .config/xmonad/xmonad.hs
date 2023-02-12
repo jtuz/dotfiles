@@ -88,7 +88,7 @@ myModMask :: KeyMask
 myModMask = mod4Mask        -- Sets modkey to super/windows key
 
 myTerminal :: String
-myTerminal = "kitty"    -- Sets default terminal
+myTerminal = "wezterm"    -- Sets default terminal
 
 myBrowser :: String
 myBrowser = "firefox"  -- Sets qutebrowser as browser
@@ -434,9 +434,9 @@ myManageHook = composeAll
   , className =? "splash"          --> doFloat
   , className =? "toolbar"         --> doFloat
   , className =? "Yad"             --> doCenterFloat
-  , title =? "Oracle VM VirtualBox Manager"  --> doFloat
-  , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
-  , className =? "Kitty"           --> doShift ( myWorkspaces !! 0 )
+  , title =? "Oracle VM VirtualBox Manager"         --> doFloat
+  , title =? "Mozilla Firefox"                      --> doShift ( myWorkspaces !! 1 )
+  , className =? "org.wezfurlong.wezterm"           --> doShift ( myWorkspaces !! 0 )
   , className =? "Brave-browser"   --> doShift ( myWorkspaces !! 2 )
   , className =? "Spotify"         --> doShift ( myWorkspaces !! 5 )
   , className =? "Clementine"         --> doShift ( myWorkspaces !! 5 )

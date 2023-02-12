@@ -1,10 +1,11 @@
 local wezterm = require("wezterm")
+local act = wezterm.action
 
 return {
 	color_scheme = "Everblush",
-	freetype_load_target = 'Light',
-	freetype_render_target = 'HorizontalLcd',
-	font_size = 12.6,
+	freetype_load_target = "Light",
+	freetype_render_target = "HorizontalLcd",
+	font_size = 10.0,
 	font = wezterm.font_with_fallback({
 		-- {
 		-- 	family = "JetBrainsMono Nerd Font Mono",
@@ -47,12 +48,12 @@ return {
 				"cv32",
 				"onum",
 			},
-		}
+		},
 	}),
 	window_background_opacity = 0.9,
 	window_frame = {
 		font = wezterm.font({ family = "Roboto", weight = "Medium" }),
-		font_size = 12.8,
+		font_size = 10.0,
 	},
 	window_padding = {
 		left = 2,
@@ -64,19 +65,45 @@ return {
 	audible_bell = "Disabled",
 	leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 },
 	keys = {
-		{ key = "C", mods = "CTRL", action = wezterm.action.CopyTo("Clipboard") },
-		{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
-		{ key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
-		{ key = "Backspace", mods = "CTRL|SHIFT", action = wezterm.action.ResetFontSize },
+		{ key = "C", mods = "CTRL", action = act.CopyTo("Clipboard") },
+		{ key = "-", mods = "CTRL", action = act.DecreaseFontSize },
+		{ key = "=", mods = "CTRL", action = act.IncreaseFontSize },
+		{ key = "Backspace", mods = "CTRL|SHIFT", action = act.ResetFontSize },
+		{
+			key = "r",
+			mods = "LEADER",
+			action = act.ActivateKeyTable({
+				name = "resize_pane",
+				one_shot = false,
+			}),
+		},
 		{
 			key = "|",
 			mods = "LEADER|SHIFT",
-			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 		},
 		{
 			key = "-",
 			mods = "LEADER",
-			action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
+		},
+	},
+	key_tables = {
+		resize_pane = {
+			{ key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 1 }) },
+			{ key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
+
+			{ key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
+			{ key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
+
+			{ key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
+			{ key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
+
+			{ key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
+			{ key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
+
+			-- Cancel the mode by pressing escape
+			{ key = "Escape", action = "PopKeyTable" },
 		},
 	},
 }
