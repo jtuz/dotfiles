@@ -101,5 +101,5 @@ sudo pacman -S xmonad xmonad-contrib xmonad-utils xmobar xmonad-log
 
 ## Credits
 
-- To @siduck for his great work with [NvChad](https://github.com/NvChad/NvChad) and [chadwm](https://github.com/siduck/chadwm)
-- Derek Taylor for his great work special with xmonad, [Check his repo](https://gitlab.com/dwt1/dotfiles)
+- To @siduck for his great job with [NvChad](https://github.com/NvChad/NvChad) and [chadwm](https://github.com/siduck/chadwm)
+- Derek Taylor for his great job special with xmonad, [Check his repo](https://gitlab.com/dwt1/dotfiles)
