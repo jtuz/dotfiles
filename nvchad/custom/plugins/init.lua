@@ -11,6 +11,9 @@ return {
   },
   ["nvim-treesitter/nvim-treesitter"] = {
     override_options = overrides.treesitter,
+    dependencies = {
+      { "yioneko/nvim-yati" },
+    },
   },
   ["williamboman/mason.nvim"] = {
     override_options = overrides.mason,
@@ -142,12 +145,6 @@ return {
         session_filepath = ".nvim/session",
       }
     end,
-  },
-  ["yioneko/nvim-yati"] = {
-    version = "*",
-    dependencies = {
-      { "nvim-treesitter/nvim-treesitter" },
-    },
   },
   ["rcarriga/nvim-dap-ui"] = {
     dependencies = {
