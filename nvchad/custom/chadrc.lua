@@ -72,7 +72,7 @@ M.ui = {
   },
 }
 
-M.plugins = require "custom.plugins"
+M.plugins = "custom.plugins"
 
 -- non plugin mappings
 M.mappings = require "custom.mappings"
