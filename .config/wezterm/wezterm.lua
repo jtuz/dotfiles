@@ -5,10 +5,10 @@ return {
 	color_scheme = "Everblush",
 	freetype_load_target = "Light",
 	freetype_render_target = "HorizontalLcd",
-	font_size = 12.5,
+	font_size = 10.0,
 	font = wezterm.font_with_fallback({
 		{
-			family = "JetBrainsMono Nerd Font Mono",
+			family = "JetBrains Mono",
 			weight = "Medium",
 			italic = false,
 			harfbuzz_features = {
@@ -43,11 +43,16 @@ return {
 		-- 		"onum",
 		-- 	},
 		-- },
+		{
+			family = "Symbols Nerd Font Mono",
+			weight = "Medium",
+			italic = false,
+		},
 	}),
-	window_background_opacity = 0.9,
+	window_background_opacity = 0.8,
 	window_frame = {
 		font = wezterm.font({ family = "Roboto", weight = "Medium" }),
-		font_size = 11.6,
+		font_size = 10.0,
 	},
 	window_padding = {
 		left = 2,
