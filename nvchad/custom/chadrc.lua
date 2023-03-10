@@ -39,6 +39,9 @@ M.ui = {
       return require "custom.ui.tabufline"
     end,
   },
+  telescope = {
+    style = "borderless", -- borderless / bordered
+  },
   nvdash = {
     load_on_startup = true,
 
