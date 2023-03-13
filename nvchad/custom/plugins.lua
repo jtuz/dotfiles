@@ -38,6 +38,20 @@ return {
         require "plugins.configs.lspconfig"
         require "custom.configs.lspconfig"
       end,
+      dependencies = {
+        {
+          "simrat39/symbols-outline.nvim",
+          config = function ()
+            require("symbols-outline").setup({
+              show_numbers = true,
+              show_relative_numbers = true,
+            })
+          end,
+        },
+        {
+          "SmiteshP/nvim-navic",
+        }
+      }
     },
   },
   {
@@ -114,12 +128,6 @@ return {
     config = function()
       require("neoscroll").setup()
     end,
-  },
-  {
-    "SmiteshP/nvim-navic",
-    dependencies = {
-      { "neovim/nvim-lspconfig" },
-    },
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -232,17 +240,4 @@ return {
       },
     }
   },
-  {
-    "simrat39/symbols-outline.nvim",
-    lazy = false,
-    dependencies = {
-      { "neovim/nvim-lspconfig" },
-    },
-    config = function ()
-      require("symbols-outline").setup({
-        show_numbers = true,
-        show_relative_numbers = true,
-      })
-    end
-  }
 }
