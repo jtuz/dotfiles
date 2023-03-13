@@ -16,18 +16,14 @@ local sources = {
 
 local M = {}
 
-M.setup = function()
-  null_ls.setup {
-    debug = true,
-    sources = sources,
+null_ls.setup {
+  debug = true,
+  sources = sources,
 
-    -- format on save
-    -- on_attach = function(client)
-    --   if client.resolved_capabilities.document_formatting then
-    --     vim.cmd "autocmd BufWritePre <buffer> vim.lsp.buf.formatting_sync()"
-    --   end
-    -- end,
-  }
-end
-
-return M
+  -- format on save
+  -- on_attach = function(client)
+  --   if client.resolved_capabilities.document_formatting then
+  --     vim.cmd "autocmd BufWritePre <buffer> vim.lsp.buf.formatting_sync()"
+  --   end
+  -- end,
+}

@@ -27,11 +27,18 @@ return {
     opts = overrides.blankline,
   },
   {
-    "neovim/nvim-lspconfig",
+    "jose-elias-alvarez/null-ls.nvim",
+    lazy = false,
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.configs.lspconfig"
+      require "custom.configs.null-ls"
     end,
+    dependencies = {
+      "neovim/nvim-lspconfig",
+      config = function()
+        require "plugins.configs.lspconfig"
+        require "custom.configs.lspconfig"
+      end,
+    },
   },
   {
     "NvChad/nvterm",
@@ -150,16 +157,6 @@ return {
         },
       }
       require("telescope").load_extension "media_files"
-    end,
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = {
-      { "neovim/nvim-lspconfig" },
-    },
-    lazy = false,
-    config = function()
-      require("custom.configs.null-ls").setup()
     end,
   },
   {
