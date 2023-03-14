@@ -58,6 +58,10 @@ return {
     "NvChad/nvterm",
     enabled = false,
   },
+  {
+    "folke/which-key.nvim",
+    enabled = false,
+  },
   ------------ Custom plugins ---------------
   {
     "tpope/vim-surround",
