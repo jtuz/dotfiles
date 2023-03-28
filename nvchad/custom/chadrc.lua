@@ -1,5 +1,6 @@
 -- IMPORTANT NOTE : This is the user config, can be edited. Will be preserved if updated with internal updater
 -- This file is for NvChad options & tools, custom settings are split between here and 'lua/custom/init.lua'
+local highlights = require "custom.ui.highlights"
 
 local M = {}
 
@@ -15,14 +16,11 @@ M.options = {
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "tokyonight" },
-  theme = "doomchad",
+  theme_toggle = { "gruvchad", "kanagawa" },
+  theme = "kanagawa",
   transparency = false,
-  hl_override = {
-    Comment = { italic=true, fg="grey_fg" },
-    NvDashAscii= { bg="#0E2738", fg="red" },
-    NvDashButtons= { bg="#17415E", fg="white" },
-  },
+  hl_override = highlights.overrie,
+  hl_add = highlights.add,
   cmp = {
     lspkind_text = false,
     style = "atom",-- default/flat_light/flat_dark/atom/atom_colored

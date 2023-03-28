@@ -4,9 +4,6 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local navic = require("nvim-navic")
 
--- an alternative server could be "pylsp" but for now
--- pyright has a better performance and integration with
--- other tools like null-ls formatter
 local servers = { "pyright", "gopls", "bashls", "jsonls", "marksman" }
 
 

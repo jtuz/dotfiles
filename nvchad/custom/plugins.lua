@@ -27,32 +27,34 @@ return {
     opts = overrides.blankline,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    lazy = false,
-    config = function()
-      require "custom.configs.null-ls"
-    end,
+    "neovim/nvim-lspconfig",
     dependencies = {
-      "neovim/nvim-lspconfig",
-      config = function()
-        require "plugins.configs.lspconfig"
-        require "custom.configs.lspconfig"
-      end,
-      dependencies = {
-        {
-          "simrat39/symbols-outline.nvim",
-          config = function ()
-            require("symbols-outline").setup({
-              show_numbers = true,
-              show_relative_numbers = true,
-            })
-          end,
-        },
-        {
-          "SmiteshP/nvim-navic",
-        }
-      }
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require "custom.configs.null-ls"
+        end,
+      },
+      {
+        "simrat39/symbols-outline.nvim",
+        config = function ()
+          require("symbols-outline").setup({
+            show_numbers = true,
+            show_relative_numbers = true,
+          })
+        end,
+      },
+      {
+        "SmiteshP/nvim-navic",
+        config = function()
+          require("nvim-navic").setup()
+        end,
+      },
     },
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end,
   },
   {
     "NvChad/nvterm",
@@ -66,7 +68,6 @@ return {
   {
     "tpope/vim-surround",
     lazy = false,
-    -- keys = { "c", "d", "y" },
   },
   {
     "tpope/vim-abolish",
@@ -206,6 +207,9 @@ return {
     config = function ()
       require("noice").setup({
         lsp = {
+          progress = {
+            enabled = false,
+          },
           hover = {
             enabled = false,
           },
