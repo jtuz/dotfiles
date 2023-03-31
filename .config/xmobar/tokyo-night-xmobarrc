@@ -1,0 +1,47 @@
+-- Xmobar (http://projects.haskell.org/xmobar/)
+-- This is the default xmobar configuration for DTOS.
+-- This config is packaged in the DTOS repo as dtos-xmobar
+-- Dependencies: otf-font-awesome ttf-mononoki ttf-ubuntu-font-family trayer
+-- Also depends on scripts from dtos-local-bin from the dtos-core-repo.
+
+Config { font            = "xft:Iosevka Nerd Font:weight=medium:pixelsize=14:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Iosevka Nerd Font:pixelsize=13:antialias=true:hinting=true"
+                           , "xft:Font Awesome 6 Free Solid:pixelsize=13"
+                           , "xft:Font Awesome 6 Brands:pixelsize=13"
+                           ]
+       , bgColor      = "#1a1b26"
+       , fgColor      = "#F7768E"
+       -- Position TopSize and BottomSize take 3 arguments:
+       --   an alignment parameter (L/R/C) for Left, Right or Center.
+       --   an integer for the percentage width, so 100 would be 100%.
+       --   an integer for the minimum pixel height for xmobar, so 24 would force a height of at least 24 pixels.
+       --   NOTE: The height should be the same as the trayer (system tray) height.
+       , position       = TopSize L 100 28
+       -- , position       = TopW L 100 
+       , lowerOnStart = True
+       , hideOnStart  = False
+       , allDesktops  = True
+       , persistent   = True
+       , iconRoot     = "/home/jtuzp/.config/xmonad/xpm/"  -- default: "."
+       , commands = [
+                        -- Prints the keyboard layout.
+                      Run Kbd [("latam", "<fn=2>\xf024</fn> ES"), ("us(altgr-intl)", "<fn=2>\xf74d</fn> US")]
+                        -- Audio percent
+                    , Run Volume "default" "Master" [] 5
+                        -- Cpu usage in percent
+                    , Run Cpu ["-t", "<fn=2>\xf2db</fn> (<total>%)","-H","50","--high","red"] 20
+                        -- Ram used number and percent
+                    , Run Memory ["-t", "<fn=2>\xf538</fn> <used>M (<usedratio>%)"] 20
+                        -- Disk space free
+                    , Run DiskU [("/home", "<fn=2>\xf0a0</fn> <free> free")] [] 60
+                        -- Time and date
+                    , Run Date "<fn=2>\xf073</fn> %b %d %Y - %H:%M " "date" 50
+                        -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
+                    , Run Com ".config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
+                        -- Prints out the left side items such as workspaces, layout, etc.
+                    , Run UnsafeStdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " <icon=haskell_20.xpm/>  <fc=#0f4b6e>|</fc> %UnsafeStdinReader% } {<box type=Bottom width=2 mb=2 color=#0f4b6e><fc=#0f4b6e><action=`pavucontrol`>%default:Master%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#0f4b6e><fc=#0f4b6e><action=`kitty --hold -c htop`>%kbd%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#0f4b6e><fc=#0f4b6e><action=`kitty --hold -c htop`>%cpu%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#0f4b6e><fc=#0f4b6e><action=`kitty --hold -c htop`>%memory%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#0f4b6e><fc=#0f4b6e><action=`alacritty -e htop`>%disku%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#0f4b6e><fc=#0f4b6e><action=`emacsclient -c -a 'emacs' --eval '(doom/window-maximize-buffer(dt/year-calendar))'`>%date%</action></fc></box> %trayerpad%"
+       }

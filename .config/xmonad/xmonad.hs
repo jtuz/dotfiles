@@ -79,7 +79,7 @@ import XMonad.Util.SpawnOnce
       -- SolarizedDark
       -- SolarizedLight
       -- TomorrowNight
-import Colors.DoomOne
+import Colors.TokyoNight
 
 myFont :: String
 myFont = "xft:JetBrains Mono Medium Nerd Font Complete:regular:size=12:antialias=true:hinting=true"
@@ -387,8 +387,8 @@ myShowWNameTheme :: SWNConfig
 myShowWNameTheme = def
   { swn_font              = "xft:3270Medium Nerd Font Mono:size=60:antialias=true"
   , swn_fade              = 1.0
-  , swn_bgcolor           = "#1c1f24"
-  , swn_color             = "#ffffff"
+  , swn_bgcolor           = "#1a1b26"
+  , swn_color             = "#cfc9c2"
   }
 
 -- The layout hook
@@ -454,7 +454,7 @@ subtitle' x = ((0,0), NamedAction $ map toUpper
 
 showKeybindings :: [((KeyMask, KeySym), NamedAction)] -> NamedAction
 showKeybindings x = addName "Show Keybindings" $ io $ do
-  h <- spawnPipe $ "yad --text-info --fontname=\"SauceCodePro Nerd Font Mono 12\" --fore=#46d9ff back=#282c36 --center --geometry=1200x800 --title \"XMonad keybindings\""
+  h <- spawnPipe $ "yad --text-info --fontname=\"SauceCodePro Nerd Font Mono 12\" --fore=#2ac3de back=#24283b --center --geometry=1200x800 --title \"XMonad keybindings\""
   --hPutStr h (unlines $ showKm x) -- showKM adds ">>" before subtitles
   hPutStr h (unlines $ showKmSimple x) -- showKmSimple doesn't add ">>" to subtitles
   hClose h
