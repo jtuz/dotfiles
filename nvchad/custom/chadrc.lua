@@ -16,8 +16,8 @@ M.options = {
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "kanagawa" },
-  theme = "kanagawa",
+  theme_toggle = { "gruvchad", "tokyonight" },
+  theme = "tokyonight",
   transparency = false,
   hl_override = highlights.overrie,
   hl_add = highlights.add,
