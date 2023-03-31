@@ -49,5 +49,11 @@ elif [ -n "$SECONDARY_OUT" ] && [ -z "$PRIMARY_OUT" ]; then
     xrandr --output "$SECONDARY_OUT" --primary --auto --pos 0x0 --rotate normal\
            --output "$LAPTOP_OUTPUT"
 fi
+xrdb -merge ~/.Xresources
+
+if ! pgrep picom ;
+then
+    DISPLAY=":0" picom -b --experimental-backends
+fi
 
 exit 0
