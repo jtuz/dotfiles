@@ -19,11 +19,11 @@ M.ui = {
   theme_toggle = { "gruvchad", "tokyonight" },
   theme = "tokyonight",
   transparency = false,
-  hl_override = highlights.overrie,
+  hl_override = highlights.override,
   hl_add = highlights.add,
   cmp = {
     lspkind_text = false,
-    style = "atom",-- default/flat_light/flat_dark/atom/atom_colored
+    style = "atom_colored",-- default/flat_light/flat_dark/atom/atom_colored
   },
   statusline = {
     theme = "default", -- default/vscode/vscode_colored/minimal
