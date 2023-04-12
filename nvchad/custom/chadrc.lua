@@ -4,21 +4,13 @@ local highlights = require "custom.ui.highlights"
 
 local M = {}
 
-M.options = {
-  -- NvChad options
-  nvChad = {
-    -- used for updater
-    update_url = "https://github.com/jtuz/NvChad",
-    update_branch = "v2.0",
-  },
-}
-
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
   theme_toggle = { "gruvchad", "tokyonight" },
   theme = "tokyonight",
   transparency = false,
+  lsp_semantic_tokens = true,
   hl_override = highlights.override,
   hl_add = highlights.add,
   cmp = {

@@ -102,10 +102,6 @@ return {
     end
   },
   {
-    "liuchengxu/vista.vim",
-    lazy = false,
-  },
-  {
     "tommcdo/vim-exchange",
     lazy = false,
   },
@@ -120,10 +116,6 @@ return {
   },
   {
     "godlygeek/tabular",
-    lazy = false,
-  },
-  {
-    "gpanders/editorconfig.nvim",
     lazy = false,
   },
   {

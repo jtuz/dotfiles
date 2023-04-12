@@ -39,8 +39,6 @@ g.loaded_perl_provider = 0
 -- Vim Move by matze
 g.move_key_modifier = "A"
 g.move_key_modifier_visualmode = "A"
--- Vista
-g.vista_default_executive = "ctags"
 
 ----------------Custom Settings----------------
 g.markdown_fenced_languages = { "html", "python", "ruby", "vim", "bash" }
