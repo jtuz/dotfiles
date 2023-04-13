@@ -25,11 +25,18 @@ Config { font            = "Iosevka Nerd Font Regular 12"
        , iconRoot     = "/home/jtuzp/.config/xmonad/xpm/"  -- default: "."
        , commands = [
                         -- Prints the keyboard layout.
-                      Run Kbd [("latam", "<fn=2>\xf024</fn> ES"), ("us(altgr-intl)", "<fn=2>\xf74d</fn> US")]
+                      Run Kbd [("latam", "<fn=2>\xf024</fn> ES"), 
+                               ("us(altgr-intl)", "<fn=2>\xf74d</fn> US")]
                         -- Audio percent
-                    , Run Volume "default" "Master" ["-t", "<status> <volume>%", "--", "--on", "<fn=2>\xf028</fn>", "--off", "<fn=2>\xf6a9</fn>", "--onc", "#9ece6a", "--offc", "#F7768E"] 5
+                    , Run Volume "default" "Master" ["-t", "<status> <volume>%",
+                                                    "--", "--on", "<fn=2>\xf028</fn>",
+                                                    "--off", "<fn=2>\xf6a9</fn>", 
+                                                    "--onc", "#9ece6a",
+                                                    "--offc", "#F7768E"] 5
                         -- Cpu usage in percent
-                    , Run Cpu ["-t", "<fn=2>\xf2db</fn> (<total>%)","-H","50","--high","#F7768E"] 20
+                    , Run Cpu ["-t", "<fn=2>\xf2db</fn> (<total>%)",
+                               "-H","50",
+                               "--high","#F7768E"] 20
                         -- Ram used number and percent
                     , Run Memory ["-t", "<fn=2>\xf538</fn> <used>M (<usedratio>%)"] 20
                         -- Disk space free
@@ -43,5 +50,5 @@ Config { font            = "Iosevka Nerd Font Regular 12"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <icon=haskell_20.xpm/>  <fc=#9699a3>|</fc> %UnsafeStdinReader% } {<box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`pavucontrol`>%default:Master%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`kitty --hold -c htop`>%kbd%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`kitty --hold -c htop`>%cpu%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`kitty --hold -c htop`>%memory%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`alacritty -e htop`>%disku%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`emacsclient -c -a 'emacs' --eval '(doom/window-maximize-buffer(dt/year-calendar))'`>%date%</action></fc></box> %trayerpad%"
+       , template = " <icon=haskell_20.xpm/>  <fc=#9699a3>|</fc> %UnsafeStdinReader% } {<box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`pavucontrol`>%default:Master%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`manjaro-settings-manager`>%kbd%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`wezterm start -- htop`>%cpu%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`wezterm start -- htop`>%memory%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`wezterm start -- yad --free`>%disku%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`gnome-calendar`>%date%</action></fc></box> %trayerpad%"
        }
