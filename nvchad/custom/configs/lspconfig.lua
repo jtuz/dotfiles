@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local navic = require("nvim-navic")
 
-local servers = { "pyright", "gopls", "bashls", "jsonls", "marksman" }
+local servers = { "pyright", "gopls", "bashls", "jsonls", "marksman", "html" }
 
 
 for _, lsp in ipairs(servers) do

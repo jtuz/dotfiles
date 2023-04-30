@@ -84,6 +84,7 @@ M.mason = {
 
     -- web dev
     "json-lsp",
+    "html-lsp",
 
     -- shell
     "bash-language-server",
