@@ -66,10 +66,6 @@ return {
   },
   ------------ Custom plugins ---------------
   {
-    "tpope/vim-surround",
-    lazy = false,
-  },
-  {
     "tpope/vim-abolish",
     lazy = false,
   },
@@ -84,22 +80,6 @@ return {
   {
     "tpope/vim-sleuth",
     lazy = false,
-  },
-  {
-    "chentoast/marks.nvim",
-    lazy = false,
-    config = function ()
-      require("marks").setup(
-        {
-          builtin_marks = { ".", "<", ">", "^" },
-          mappings = {
-            next = "]'",
-            prev = "['",
-            delete_buf = "m<space>",
-          }
-        }
-      )
-    end
   },
   {
     "tommcdo/vim-exchange",
@@ -117,6 +97,32 @@ return {
   {
     "godlygeek/tabular",
     lazy = false,
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  },
+  {
+    "chentoast/marks.nvim",
+    lazy = false,
+    config = function ()
+      require("marks").setup(
+        {
+          builtin_marks = { ".", "<", ">", "^" },
+          mappings = {
+            next = "]'",
+            prev = "['",
+            delete_buf = "m<space>",
+          }
+        }
+      )
+    end
   },
   {
     "karb94/neoscroll.nvim",
