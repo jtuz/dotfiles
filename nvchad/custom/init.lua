@@ -50,6 +50,7 @@ opt.inccommand = "nosplit"
 opt.wrap = false -- Do not wrap long lines
 opt.list = true
 opt.listchars = { eol = "↲", tab = "» ", trail = "·", extends = "▸", nbsp = "." }
+opt.diffopt = { "internal", "filler", "closeoff", "linematch:60" }
 opt.autoindent = true
 opt.colorcolumn = "+1"
 
