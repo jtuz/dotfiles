@@ -22,9 +22,6 @@
     keepBackup = false
 [mergetool "fugitive"]
     cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
-[github]
-    user = jtuz
-    token = <github-token>
 [credential]
     helper = cache
 [core]

@@ -385,7 +385,7 @@ myTabTheme = def { fontName            = myFont
 -- Theme for showWName which prints current workspace when you change workspaces.
 myShowWNameTheme :: SWNConfig
 myShowWNameTheme = def
-  { swn_font              = "xft:3270Medium Nerd Font Mono:size=60:antialias=true"
+  { swn_font              = "xft:3270 Nerd Font Propo:size=60:antialias=true"
   , swn_fade              = 1.0
   , swn_bgcolor           = "#1a1b26"
   , swn_color             = "#cfc9c2"
