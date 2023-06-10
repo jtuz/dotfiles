@@ -91,7 +91,7 @@ myTerminal :: String
 myTerminal = "wezterm"    -- Sets default terminal
 
 myBrowser :: String
-myBrowser = "firefox"  -- Sets qutebrowser as browser
+myBrowser = "brave"  -- Sets qutebrowser as browser
 
 myEditor :: String
 myEditor = myTerminal ++ " --hold sh -c \"nvim\""    -- Sets vim as editor
@@ -436,7 +436,7 @@ myManageHook = composeAll
   , title =? "Oracle VM VirtualBox Manager"         --> doFloat
   , title =? "Mozilla Firefox"                      --> doShift ( myWorkspaces !! 1 )
   , className =? "org.wezfurlong.wezterm"           --> doShift ( myWorkspaces !! 0 )
-  , className =? "Brave-browser"   --> doShift ( myWorkspaces !! 2 )
+  , className =? "Brave-browser"   --> doShift ( myWorkspaces !! 1 )
   , className =? "Spotify"         --> doShift ( myWorkspaces !! 5 )
   , className =? "Clementine"         --> doShift ( myWorkspaces !! 5 )
   , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )

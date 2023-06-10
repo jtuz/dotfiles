@@ -7,8 +7,8 @@ local M = {}
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "oceanic-next" },
-  theme = "oceanic-next",
+  theme_toggle = { "gruvchad", "doomchad" },
+  theme = "doomchad",
   transparency = false,
   lsp_semantic_tokens = true,
   hl_override = highlights.override,
@@ -66,6 +66,8 @@ M.ui = {
 }
 
 M.plugins = "custom.plugins"
+
+M.lazy_nvim = require "custom.configs.lazy_nvim"
 
 -- non plugin mappings
 M.mappings = require "custom.mappings"

@@ -29,7 +29,6 @@ M.telescope = {
     ["<leader>fg"] = { "<cmd> Telescope git_files<CR>", "Find git files" },
     ["<leader>gs"] = { "<cmd> Telescope git_status<CR>", "Git status" },
     ["<leader>fp"] = { "<cmd> Telescope media_files<CR>", "Find media" },
-    ["<leader>mk"] = { "<cmd> Telescope marks<CR>",  "Marks" },
   },
 }
 
