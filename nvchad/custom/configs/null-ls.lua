@@ -13,6 +13,7 @@ local sources = {
   -- Golang
   b.formatting.gofmt,
   b.formatting.goimports,
+  b.formatting.golines,
   -- Lua
   b.formatting.stylua,
   b.code_actions.gitsigns,
