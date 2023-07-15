@@ -434,13 +434,13 @@ myManageHook = composeAll
   , className =? "toolbar"         --> doFloat
   , className =? "Yad"             --> doCenterFloat
   , title =? "Oracle VM VirtualBox Manager"         --> doFloat
-  , title =? "Mozilla Firefox"                      --> doShift ( myWorkspaces !! 1 )
+  , className =? "Mozilla Firefox"                      --> doShift ( myWorkspaces !! 1 )
   , className =? "org.wezfurlong.wezterm"           --> doShift ( myWorkspaces !! 0 )
   , className =? "Brave-browser"   --> doShift ( myWorkspaces !! 1 )
   , className =? "Spotify"         --> doShift ( myWorkspaces !! 5 )
   , className =? "Clementine"         --> doShift ( myWorkspaces !! 5 )
   , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
-  , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
+  , (className =? "Brave-browser" <&&> resource =? "Dialog") --> doFloat  -- Float Brave Dialog
   , isFullscreen -->  doFullFloat
   ] <+> namedScratchpadManageHook myScratchPads
 
@@ -468,7 +468,7 @@ myKeys c =
   [ ("M-C-r", addName "Recompile XMonad"       $ spawn "xmonad --recompile")
   , ("M-S-r", addName "Restart XMonad"         $ spawn "xmonad --restart")
   , ("M-S-q", addName "Quit XMonad"            $ io exitSuccess)
-  , ("M-S-c", addName "Kill focused window"    $ kill1)
+  , ("M-q", addName "Kill focused window"    $ kill1)
   , ("M-S-a", addName "Kill all windows on WS" $ killAll)]
 
   ^++^ subKeys "Switch to workspace"

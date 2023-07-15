@@ -2,26 +2,6 @@ local g = vim.g
 local opt = vim.opt
 
 local autocmd = vim.api.nvim_create_autocmd
-local ext_present, dap_extensions = pcall(require, "dap.ext.vscode")
-local dap_present, dap = pcall(require, "dap")
-local dapui_present, dapui = pcall(require, "dapui")
-
-if ext_present then
-  dap_extensions.load_launchjs(".nvim/launch.json", nil)
-end
-
-if dap_present and dapui_present then
-  dap.listeners.after.event_initialized["dapui_config"] = function()
-    dapui.open()
-  end
-  dap.listeners.before.event_terminated["dapui_config"] = function()
-    dapui.close()
-  end
-  dap.listeners.before.event_exited["dapui_config"] = function()
-    dapui.close()
-  end
-end
--- require('dap-python').test_runner = 'pytest'
 
 ----------------Nvim providers----------------
 -- Due I use pyenv and rbenv, to avoid
@@ -41,7 +21,7 @@ g.move_key_modifier = "A"
 g.move_key_modifier_visualmode = "A"
 
 ----------------Custom Settings----------------
-g.markdown_fenced_languages = { "html", "python", "ruby", "vim", "bash" }
+g.markdown_fenced_languages = { "html", "python", "ruby", "vim", "bash", "go" }
 -- opt.cmdheight = 0
 opt.shiftround = true
 opt.encoding = "utf-8"

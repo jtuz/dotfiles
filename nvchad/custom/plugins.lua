@@ -181,23 +181,39 @@ return {
     end,
   },
   {
-    "rcarriga/nvim-dap-ui",
-    dependencies = {
-      { "mfussenegger/nvim-dap" },
-    },
+    "rcarriga/nvim-dap-uircarriga/nvim-dap-ui",
+    lazy = false,
     config = function()
+      vim.fn.sign_define('DapBreakpoint', {text='⛔', texthl='', linehl='', numhl=''})
+      vim.fn.sign_define('DapStopped', {text='👉', texthl='', linehl='', numhl=''})
       require("dapui").setup()
+      require('dap.ext.vscode').load_launchjs(".nvim/launch.json", nil)
     end,
-  },
-  {
-    "mfussenegger/nvim-dap-python",
     dependencies = {
-      { "rcarriga/nvim-dap-ui" },
-    },
-    config = function()
-      local mason_venv_path = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/bin/python"
-      require("dap-python").setup(mason_venv_path)
-    end,
+      { 
+        "mfussenegger/nvim-dap",
+        config = function ()
+          local dap = require("dap")
+          local dapui = require("dapui")
+          dap.listeners.after.event_initialized["dapui_config"] = function()
+            dapui.open()
+          end
+          dap.listeners.before.event_terminated["dapui_config"] = function()
+            dapui.close()
+          end
+          dap.listeners.before.event_exited["dapui_config"] = function()
+            dapui.close()
+          end
+        end,
+      },
+      {
+        "mfussenegger/nvim-dap-python",
+        config = function()
+          local mason_venv_path = vim.fn.stdpath "data" .. "/mason/packages/debugpy/venv/bin/python"
+          require("dap-python").setup(mason_venv_path)
+        end,
+      },
+    }
   },
   {
     "folke/noice.nvim",
