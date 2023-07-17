@@ -56,8 +56,8 @@ M.ui = {
 
     buttons = {
       { "  Find File", "Spc f f", "Telescope find_files" },
-      { "  Recent Files", "Spc f o", "Telescope oldfiles" },
-      { "  Find Word", "Spc f w", "Telescope live_grep" },
+      { "  Recent Files", "Spc f o", "Telescope oldfiles" },
+      { "󰈭  Find Word", "Spc f w", "Telescope live_grep" },
       { "  Git Files", "Spc f g", "Telescope git_files" },
       { "  File Tree", "Spc f t", "NvimTreeToggle" },
       { "  Themes", "Spc t h", "Telescope themes" },

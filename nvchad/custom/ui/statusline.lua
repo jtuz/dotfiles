@@ -41,7 +41,7 @@ local lang_translation = function ()
   if not spell then
     return ""
   end
-  return "%#St_file_info#" .. " 暈" .. spelllang .. "%#St_file_sep#" .. sep_r
+  return "%#St_file_info#" .. "󰇝 󰓆" .. spelllang .. "%#St_file_sep#" .. sep_r
 end
 
 return {
@@ -66,7 +66,7 @@ return {
       end
     end,
     cwd = function ()
-      return modules.cwd() .. "" .. platform() .. " "
+      return modules.cwd() .. "󰇝" .. platform() .. " "
     end,
     cursor_position = function()
       local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. " "
