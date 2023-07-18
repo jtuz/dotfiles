@@ -25,8 +25,9 @@ local servers = {
 		settings = {
 			python = {
 				analysis = {
-					autoSearchPaths = false,
-					useLibraryCodeForTypes = false,
+					autoImportCompletions = true,
+					autoSearchPaths = true,
+					useLibraryCodeForTypes = true,
 					diagnosticMode = "openFilesOnly",
 				},
 			},

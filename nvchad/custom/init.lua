@@ -49,7 +49,7 @@ autocmd("FileType", {
   pattern = "gitcommit",
   group = commit_group,
   callback = function()
-    vim.b.EditorConfig_disable = 1
+    vim.b.editorconfig = false
     vim.cmd [[ call setpos('.', [0, 1, 1, 0]) ]]
   end,
 })
@@ -58,7 +58,7 @@ autocmd("BufEnter", {
   pattern = "COMMIT_EDITMSG",
   group = commit_group,
   callback = function()
-    vim.b.EditorConfig_disable = 1
+    vim.b.editorconfig = false
     vim.cmd [[ call setpos('.', [0, 1, 1, 0]) ]]
   end,
 })
@@ -102,7 +102,7 @@ autocmd("FileType", {
    end,
 })
 
-autocmd('FileType', {
-  pattern = {'help', 'man'},
-  command = 'nnoremap <buffer> gq <cmd>quit<cr>'
+autocmd("FileType", {
+  pattern = {"help", "man"},
+  command = "nnoremap <buffer> gq <cmd>quit<cr>"
 })
