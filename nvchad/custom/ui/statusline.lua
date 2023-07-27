@@ -55,16 +55,6 @@ return {
       return ""
     end
     end,
-    LSP_status = function()
-      if rawget(vim, "lsp") then
-        for _, client in ipairs(vim.lsp.get_active_clients()) do
-        -- a small hack, null-ls is no longer a valid client to display in the statusline
-          if client.attached_buffers[vim.api.nvim_get_current_buf()] and client.name ~= "null-ls" then
-            return (vim.o.columns > 100 and "%#St_LspStatus#" .. "   LSP ~ " .. client.name .. " ") or "   LSP "
-          end
-        end
-      end
-    end,
     cwd = function ()
       return modules.cwd() .. "󰇝" .. platform() .. " "
     end,
