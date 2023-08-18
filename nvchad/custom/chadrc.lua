@@ -28,8 +28,8 @@ M.ui = {
     end,
   },
   tabufline = {
-    overriden_modules = function()
-      return require "custom.ui.tabufline"
+    overriden_modules = function(modules)
+      table.remove(modules, 4)
     end,
   },
   telescope = {
