@@ -1,23 +1,22 @@
 -- Xmobar (http://projects.haskell.org/xmobar/)
--- This is the default xmobar configuration for DTOS.
--- This config is packaged in the DTOS repo as dtos-xmobar
--- Dependencies: otf-font-awesome ttf-mononoki ttf-ubuntu-font-family trayer
--- Also depends on scripts from dtos-local-bin from the dtos-core-repo.
+-- Starting with version 0.45 we use cairo/pango as our drawing engine (instead of plain X11/Xft).
+-- From a user's point of view, that change should be mostly transparent, except for the facts 
+-- that it's allowed fixing quite a few bugs and that your font names in your configuration, 
+-- if you used xft ones, might need to be adapted to Pango's syntax: 
 
-Config { font            = "xft:Iosevka Nerd Font:weight=medium:pixelsize=14:antialias=true:hinting=true"
-       , additionalFonts = [ "xft:Iosevka Nerd Font:pixelsize=13:antialias=true:hinting=true"
-                           , "xft:Font Awesome 6 Free Solid:pixelsize=13"
-                           , "xft:Font Awesome 6 Brands:pixelsize=13"
+Config { font            = "Iosevka Nerd Font Regular 12"
+       , additionalFonts = [ "Iosevka Nerd Font Regular 12"
+                           , "Font Awesome 6 Free Solid 12"
+                           , "Font Awesome 6 Brands 12"
                            ]
-       , bgColor      = "#282c34"
-       , fgColor      = "#ff6c6b"
+       , bgColor      = "#1a1b26"
+       , fgColor      = "#F7768E"
        -- Position TopSize and BottomSize take 3 arguments:
        --   an alignment parameter (L/R/C) for Left, Right or Center.
        --   an integer for the percentage width, so 100 would be 100%.
        --   an integer for the minimum pixel height for xmobar, so 24 would force a height of at least 24 pixels.
        --   NOTE: The height should be the same as the trayer (system tray) height.
        , position       = TopSize L 100 28
-       -- , position       = TopW L 100 
        , lowerOnStart = True
        , hideOnStart  = False
        , allDesktops  = True
@@ -25,17 +24,24 @@ Config { font            = "xft:Iosevka Nerd Font:weight=medium:pixelsize=14:ant
        , iconRoot     = "/home/jtuzp/.config/xmonad/xpm/"  -- default: "."
        , commands = [
                         -- Prints the keyboard layout.
-                      Run Kbd [("latam", "<fn=2>\xf024</fn> ES"), ("us(altgr-intl)", "<fn=2>\xf74d</fn> US")]
+                      Run Kbd [("latam", "<fc=#ff9e64><fn=2>\xf024</fn></fc> ES"), 
+                               ("us(altgr-intl)", "<fc=#F7768E><fn=2>\xf74d</fn></fc> US")]
                         -- Audio percent
-                    , Run Volume "default" "Master" [] 10
+                    , Run Volume "default" "Master" ["-t", "<status> <volume>%",
+                                                    "--", "--on", "<fn=2>\xf028</fn>",
+                                                    "--off", "<fn=2>\xf6a9</fn>", 
+                                                    "--onc", "#9ece6a",
+                                                    "--offc", "#F7768E"] 5
                         -- Cpu usage in percent
-                    , Run Cpu ["-t", "<fn=2>\xf2db</fn> (<total>%)","-H","50","--high","red"] 20
+                    , Run Cpu ["-t", "<fc=#0db9d7><fn=2>\xf2db</fn></fc> (<total>%)",
+                               "-H","50",
+                               "--high","#F7768E"] 20
                         -- Ram used number and percent
-                    , Run Memory ["-t", "<fn=2>\xf538</fn> <used>M (<usedratio>%)"] 20
+                    , Run Memory ["-t", "<fc=#485e30><fn=2>\xf538</fn></fc> <used>M (<usedratio>%)"] 20
                         -- Disk space free
-                    , Run DiskU [("/home", "<fn=2>\xf0a0</fn> <free> free")] [] 60
+                    , Run DiskU [("/home", "<fc=#444b6a><fn=2>\xf0a0</fn></fc> <free> free")] [] 60
                         -- Time and date
-                    , Run Date "<fn=2>\xf073</fn> %b %d %Y - %H:%M " "date" 50
+                    , Run Date "<fc=#34548a><fn=2>\xf073</fn></fc> %b %d %Y - %H:%M " "date" 50
                         -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
                     , Run Com ".config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
                         -- Prints out the left side items such as workspaces, layout, etc.
@@ -43,5 +49,6 @@ Config { font            = "xft:Iosevka Nerd Font:weight=medium:pixelsize=14:ant
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <icon=haskell_20.xpm/>  <fc=#666666>|</fc> %UnsafeStdinReader% } {<box type=Bottom width=2 mb=2 color=#98be65><fc=#98be65><action=`pavucontrol`>%default:Master%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#51afef><fc=#51afef><action=`kitty --hold -c htop`>%kbd%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#ecbe7b><fc=#ecbe7b><action=`kitty --hold -c htop`>%cpu%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#ff6c6b><fc=#ff6c6b><action=`kitty --hold -c htop`>%memory%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#a9a1e1><fc=#a9a1e1><action=`alacritty -e htop`>%disku%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#46d9ff><fc=#46d9ff><action=`emacsclient -c -a 'emacs' --eval '(doom/window-maximize-buffer(dt/year-calendar))'`>%date%</action></fc></box> %trayerpad%"
+       -- , template = " <icon=haskell_20.xpm/>  <fc=#444b6a>|</fc> %UnsafeStdinReader% } {<box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`pavucontrol`>%default:Master%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`manjaro-settings-manager`>%kbd%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`wezterm start -- htop`>%cpu%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`wezterm start -- htop`>%memory%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`wezterm start -- yad --free`>%disku%</action></fc></box>  <box type=Bottom width=2 mb=2 color=#9699a3><fc=#9699a3><action=`gnome-calendar`>%date%</action></fc></box> %trayerpad%"
+       , template = " %UnsafeStdinReader% } {<fc=#9699a3><action=`pavucontrol`>%default:Master%</action></fc> <fc=#9699a3><action=`manjaro-settings-manager`>%kbd%</action></fc> <fc=#9699a3><action=`wezterm start -- htop`>%cpu%</action></fc> <fc=#9699a3><action=`wezterm start -- htop`>%memory%</action></fc> <fc=#9699a3><action=`wezterm start -- yad --free`>%disku%</action></fc> <fc=#9699a3><action=`gnome-calendar`>%date%</action></fc> %trayerpad%"
        }

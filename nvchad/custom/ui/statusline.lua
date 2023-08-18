@@ -1,4 +1,4 @@
-local modules = require("nvchad_ui.statusline.default")
+local modules = require("nvchad.statusline.default")
 local config = require("core.utils").load_config().ui.statusline
 local op_sys = require("custom.utils")
 local sep_style = config.separator_style
@@ -14,14 +14,6 @@ local separators = (type(sep_style) == "table" and sep_style) or default_sep_ico
 
 local sep_l = separators["left"]
 local sep_r = separators["right"]
-
-local navic = function ()
-  if vim.o.columns < 140 or not package.loaded["nvim-navic"] then
-      return ""
-  end
-  local navic = require("nvim-navic")
-  return (navic.is_available() and navic.get_location()) or ""
-end
 
 local platform = function ()
   local os_icon = ""
@@ -44,23 +36,20 @@ local lang_translation = function ()
   return "%#St_file_info#" .. "󰇝 󰓆" .. spelllang .. "%#St_file_sep#" .. sep_r
 end
 
-return {
-    fileInfo = function ()
-      return modules.fileInfo() .. lang_translation()
-    end,
-    LSP_progress = function()
-    if rawget(vim, "lsp") then
-      return modules.LSP_progress() .. "%#Nvim_navic#" .. navic()
-    else
-      return ""
-    end
-    end,
-    cwd = function ()
-      return modules.cwd() .. "󰇝" .. platform() .. " "
-    end,
-    cursor_position = function()
-      local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. " "
-      local text = vim.o.columns > 140 and "%l:%c" or ""
-      return left_sep .. "%#St_Pos_txt# " .. text .. " "
-    end,
-}
+local M = {}
+
+M.fileInfo = function ()
+  return modules.fileInfo() .. lang_translation()
+end
+
+M.cwd = function ()
+  return modules.cwd() .. "󰇝" .. platform() .. " "
+end
+
+M.cursor_position = function()
+  local left_sep = "%#St_pos_sep#" .. sep_l .. "%#St_pos_icon#" .. " "
+  local text = vim.o.columns > 140 and "%l:%c" or ""
+  return left_sep .. "%#St_Pos_txt# " .. text .. " "
+end
+
+return M

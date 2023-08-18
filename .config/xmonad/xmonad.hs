@@ -79,6 +79,7 @@ import XMonad.Util.SpawnOnce
       -- SolarizedDark
       -- SolarizedLight
       -- TomorrowNight
+      -- TokyoNight
 import Colors.TokyoNight
 
 myFont :: String
@@ -263,6 +264,7 @@ gsSettings =
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "galculator" spawnCalc findCalc manageCalc
                 , NS "uno-calculator" spawnUnoCalc findUnoCalc manageUnoCalc
+                , NS "Gpick" spawnGpick findGpick manageGpick
                 , NS "pavu-control" spawnAudioCtl findAudioCtl manageAudioCtl
                 , NS "protonvpn" spawnProtonVpnCtl findProtonVpnCtl manageProtonVpnCtl
                 ]
@@ -278,6 +280,14 @@ myScratchPads = [ NS "galculator" spawnCalc findCalc manageCalc
     spawnUnoCalc  = "uno-calculator"
     findUnoCalc   = className =? "Calculator.Skia.Gtk"
     manageUnoCalc = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.5
+                 w = 0.4
+                 t = 0.75 -h
+                 l = 0.70 -w
+    spawnGpick  = "Gpick"
+    findGpick   = className =? "Gpick"
+    manageGpick = customFloating $ W.RationalRect l t w h
                where
                  h = 0.5
                  w = 0.4
@@ -388,7 +398,7 @@ myShowWNameTheme = def
   { swn_font              = "xft:3270 Nerd Font Propo:size=60:antialias=true"
   , swn_fade              = 1.0
   , swn_bgcolor           = "#1a1b26"
-  , swn_color             = "#cfc9c2"
+  , swn_color             = "#0db9d7"
   }
 
 -- The layout hook
@@ -649,17 +659,17 @@ main = do
         { ppOutput = \x -> hPutStrLn xmproc0 x   -- xmobar on monitor 1
                         >> hPutStrLn xmproc1 x   -- xmobar on monitor 2
                         >> hPutStrLn xmproc2 x   -- xmobar on monitor 3
-        , ppCurrent = xmobarColor color06 "" . wrap
-                      ("<box type=Bottom width=2 mb=2 color=" ++ color06 ++ ">") "</box>"
+        , ppCurrent = xmobarColor color03 "" . wrap
+                      ("<box type=Bottom width=2 mb=2 color=" ++ color03 ++ ">") "</box>"
           -- Visible but not current workspace
-        , ppVisible = xmobarColor color06 "" . clickable
+        , ppVisible = xmobarColor color03 "" . clickable
           -- Hidden workspace
         , ppHidden = xmobarColor color05 "" . wrap
                      ("<box type=Top width=2 mt=2 color=" ++ color05 ++ ">") "</box>" . clickable
           -- Hidden workspaces (no windows)
-        , ppHiddenNoWindows = xmobarColor color05 ""  . clickable
+        , ppHiddenNoWindows = xmobarColor color09 ""  . clickable
           -- Title of active window
-        , ppTitle = xmobarColor color16 "" . shorten 60
+        , ppTitle = xmobarColor colorFore "" . shorten 60
           -- Separator character
         , ppSep =  "<fc=" ++ color09 ++ "> <fn=1>|</fn> </fc>"
           -- Urgent workspace

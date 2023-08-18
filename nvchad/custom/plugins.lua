@@ -1,30 +1,34 @@
 local op_sys = require "custom.utils"
-local overrides = require "custom.configs"
+local config = require "custom.configs"
 
 return {
-  ----------- Override defaults ------------
+  ----------- Overwrite defaults ------------
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = config.gitsigns,
+  },
   {
     "nvim-telescope/telescope.nvim",
-    opts = overrides.telescope,
+    opts = config.telescope,
   },
   {
     "nvim-tree/nvim-tree.lua",
-    opts = overrides.nvimtree,
+    opts = config.nvimtree,
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = overrides.treesitter,
+    opts = config.treesitter,
     dependencies = {
       { "yioneko/nvim-yati" },
     },
   },
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason,
+    opts = config.mason,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    opts = overrides.blankline,
+    opts = config.blankline,
   },
   {
     "neovim/nvim-lspconfig",
@@ -49,6 +53,19 @@ return {
         config = function()
           require("nvim-navic").setup()
         end,
+      },
+      {
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        version = "*",
+        lazy = false,
+        opts = {
+          -- configurations go here
+          show_dirname = false,
+          show_basename = false,
+          attach_navic = false,
+          kinds = require "custom.configs.barbecue"
+        },
       },
     },
     config = function()
@@ -254,4 +271,6 @@ return {
       },
     }
   },
+  -- Local plugins
+  -- { dir =  "/mnt/6284C2A984C27ED3/Workspace/opensource/jtuzp/copy-reference/"  },
 }

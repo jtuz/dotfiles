@@ -7,8 +7,8 @@ local M = {}
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "oxocarbon" },
-  theme = "oxocarbon",
+  theme_toggle = { "gruvchad", "everblush" },
+  theme = "everblush",
   transparency = false,
   lsp_semantic_tokens = true,
   hl_override = highlights.override,
@@ -20,8 +20,11 @@ M.ui = {
   statusline = {
     theme = "default", -- default/vscode/vscode_colored/minimal
     separator_style = "block", -- default/round/block/arrow
-    overriden_modules = function()
-      return require "custom.ui.statusline"
+    overriden_modules = function(modules)
+      local custom_modules = require "custom.ui.statusline"
+      modules[2] = custom_modules.fileInfo()
+      modules[9] = custom_modules.cwd()
+      modules[10] = custom_modules.cursor_position()
     end,
   },
   tabufline = {
@@ -30,7 +33,7 @@ M.ui = {
     end,
   },
   telescope = {
-    style = "borderless", -- borderless / bordered
+    style = "bordered", -- borderless / bordered
   },
   nvdash = {
     load_on_startup = true,
