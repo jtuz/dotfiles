@@ -156,6 +156,7 @@ return {
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    lazy = false,
     dependencies = {
       { "nvim-telescope/telescope.nvim" },
     },
@@ -176,6 +177,7 @@ return {
   {
     "nvim-telescope/telescope-media-files.nvim",
     enabled = op_sys.LINUX(),
+    lazy = false,
     dependencies = {
       { "nvim-telescope/telescope.nvim" },
     },

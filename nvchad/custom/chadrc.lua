@@ -7,8 +7,8 @@ local M = {}
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "everblush" },
-  theme = "everblush",
+  theme_toggle = { "gruvchad", "nightowl" },
+  theme = "nightowl",
   transparency = false,
   lsp_semantic_tokens = true,
   hl_override = highlights.override,
