@@ -49,6 +49,34 @@ local servers = {
   html = {
     filetypes = { "html", "htmldjango" },
   },
+  yamlls = {
+    settings = {
+      yaml = {
+        customTags = {
+          "!Base64 scalar",
+          "!Cidr scalar",
+          "!And sequence",
+          "!Equals sequence",
+          "!If sequence",
+          "!Not sequence",
+          "!Or sequence",
+          "!Condition scalar",
+          "!FindInMap sequence",
+          "!GetAtt scalar",
+          "!GetAtt sequence",
+          "!GetAZs scalar",
+          "!ImportValue scalar",
+          "!Join sequence scalar",
+          "!Select sequence",
+          "!Split sequence",
+          "!Sub",
+          "!Sub sequence scalar",
+          "!Transform mapping",
+          "!Ref scalar",
+        },
+      },
+    },
+  },
 }
 
 for server, config in pairs(servers) do

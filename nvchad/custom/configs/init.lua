@@ -94,6 +94,7 @@ M.blankline = {
 
 M.mason = {
   ensure_installed = {
+    "shfmt",
     -- Markdown
     "marksman",
     -- lua stuff
@@ -113,11 +114,15 @@ M.mason = {
     "isort",
     "black",
     "debugpy",
+    "ruff",
 
     -- Golang
     "gopls",
     "goimports",
-    "golines"
+    "golines",
+
+    -- yaml
+    "yaml-language-server",
   },
 }
 

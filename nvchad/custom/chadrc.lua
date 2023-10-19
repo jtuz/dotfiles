@@ -7,8 +7,8 @@ local M = {}
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "nightowl" },
-  theme = "nightowl",
+  theme_toggle = { "gruvchad", "tokyonight" },
+  theme = "tokyonight",
   transparency = false,
   lsp_semantic_tokens = true,
   hl_override = highlights.override,
@@ -66,6 +66,12 @@ M.ui = {
       { "  Themes", "Spc t h", "Telescope themes" },
     },
   },
+  lsp = {
+    signature = {
+      disabled = false,
+      silent = false,
+    }
+  }
 }
 
 M.plugins = "custom.plugins"

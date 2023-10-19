@@ -6,10 +6,14 @@ end
 local b = null_ls.builtins
 
 local sources = {
+  -- bash
+  b.formatting.shfmt,
   -- python
   b.formatting.black.with { extra_args = { "--fast" } },
   b.formatting.isort,
   b.diagnostics.flake8,
+  -- b.formatting.ruff,
+  -- b.diagnostics.ruff,
   -- Golang
   b.formatting.gofmt,
   b.formatting.goimports,

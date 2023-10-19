@@ -154,27 +154,6 @@ return {
     end,
   },
   {
-    "nvim-telescope/telescope-fzf-native.nvim",
-    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-    lazy = false,
-    dependencies = {
-      { "nvim-telescope/telescope.nvim" },
-    },
-    config = function()
-      require("telescope").setup {
-        extensions = {
-          fzf = {
-            fuzzy = true,
-            override_generic_sorter = true,
-            override_file_sorter = true,
-            case_mode = "smart_case",
-          },
-        },
-      }
-      require("telescope").load_extension "fzf"
-    end,
-  },
-  {
     "nvim-telescope/telescope-media-files.nvim",
     enabled = op_sys.LINUX(),
     lazy = false,
@@ -232,6 +211,12 @@ return {
     config = function ()
       require("noice").setup({
         lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
           progress = {
             enabled = false,
           },
@@ -272,6 +257,15 @@ return {
         "rcarriga/nvim-notify",
       },
     }
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
   },
   -- Local plugins
   -- { dir =  "/mnt/6284C2A984C27ED3/Workspace/opensource/jtuzp/copy-reference/"  },

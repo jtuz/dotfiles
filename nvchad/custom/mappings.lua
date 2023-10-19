@@ -78,12 +78,6 @@ M.misc = {
     ["<C-j>"] = { "<Down>", "move down" },
     ["<C-k>"] = { "<Up>", "move up" },
   },
-
-  v = {
-    -- Visual shifting (does not exit visual mode)
-    [">"] = { ">gv", "Does not exit visual mode" },
-    ["<"] = { "<gv", "Does not exit visual mode" },
-  },
 }
 
 M.gitsigns = {
@@ -96,6 +90,18 @@ M.gitsigns = {
     },
   },
 }
+
+-- M.lsp = {
+--   n = {
+--     ["<leader>fm"] = {
+--
+--       function()
+--         require("conform").format()
+--       end,
+--       "format with conform",
+--     },
+--   },
+-- }
 
 M.dap = {
   n = {
