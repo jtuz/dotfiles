@@ -3,6 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
 local navic = require("nvim-navic")
+local util = require 'lspconfig/util'
 
 local function sif(config, server)
   if config.settings then
@@ -94,7 +95,8 @@ for server, config in pairs(servers) do
         virtual_text = false,
       }),
     },
-    -- root_dir = vim.loop.cwd,
+    -- root_dir = vim.loop.cwd
+    root_dir = util.find_git_ancestor,
     flags = {
       debounce_text_changes = 150,
     },
