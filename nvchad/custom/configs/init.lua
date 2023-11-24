@@ -78,18 +78,8 @@ M.treesitter = {
 }
 
 M.blankline = {
-  char = '┊',
-  show_trailing_blankline_indent = false,
-  filetype_exclude = {
-    "help",
-    "terminal",
-    "lspinfo",
-    "TelescopePrompt",
-    "TelescopeResults",
-    "nvchad_cheatsheet",
-    "lsp-installer",
-    "",
-  },
+  indent = { char = "┊", highlight = "IblChar" },
+  scope = { char = "│", highlight = "IblScopeChar" },
 }
 
 M.mason = {

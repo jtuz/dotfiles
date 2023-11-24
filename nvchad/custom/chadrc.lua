@@ -7,10 +7,9 @@ local M = {}
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "tokyonight" },
-  theme = "tokyonight",
+  theme_toggle = { "gruvchad", "oceanic-next" },
+  theme = "oceanic-next",
   transparency = false,
-  lsp_semantic_tokens = true,
   hl_override = highlights.override,
   hl_add = highlights.add,
   cmp = {
@@ -33,7 +32,7 @@ M.ui = {
     end,
   },
   telescope = {
-    style = "bordered", -- borderless / bordered
+    style = "borderless", -- borderless / bordered
   },
   nvdash = {
     load_on_startup = true,
@@ -67,10 +66,8 @@ M.ui = {
     },
   },
   lsp = {
-    signature = {
-      disabled = false,
-      silent = false,
-    }
+    signature = true,
+    semantic_tokens = true,
   }
 }
 
@@ -80,5 +77,28 @@ M.lazy_nvim = require "custom.configs.lazy_nvim"
 
 -- non plugin mappings
 M.mappings = require "custom.mappings"
+
+M.base46 = {
+  integrations = {
+    "blankline",
+    "cmp",
+    "defaults",
+    "devicons",
+    "dap",
+    "git",
+    "lsp",
+    "mason",
+    "nvchad_updater",
+    "nvcheatsheet",
+    "nvdash",
+    "nvimtree",
+    "statusline",
+    "syntax",
+    "treesitter",
+    "tbline",
+    "telescope",
+    "whichkey",
+  },
+}
 
 return M

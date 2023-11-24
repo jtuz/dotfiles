@@ -69,7 +69,7 @@ return {
       },
     },
     config = function()
-      require "plugins.configs.lspconfig"
+      require("plugins.configs.lspconfig").defaults()
       require "custom.configs.lspconfig"
     end,
   },
@@ -118,6 +118,10 @@ return {
   {
     "godlygeek/tabular",
     lazy = false,
+  },
+  {
+    "gpanders/nvim-parinfer",
+    event = "InsertEnter",
   },
   {
     "kylechui/nvim-surround",
