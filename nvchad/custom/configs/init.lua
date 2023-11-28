@@ -110,6 +110,7 @@ M.mason = {
     "gopls",
     "goimports",
     "golines",
+    "delve",
 
     -- yaml
     "yaml-language-server",

@@ -207,6 +207,13 @@ return {
           require("dap-python").setup(mason_venv_path)
         end,
       },
+      {
+        "leoluz/nvim-dap-go",
+        ft = "go",
+        config = function (_, opts)
+          require("dap-go").setup(opts)
+        end
+      }
     }
   },
   {
