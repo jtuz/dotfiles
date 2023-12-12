@@ -1,5 +1,6 @@
 local g = vim.g
 local opt = vim.opt
+local cmd = vim.cmd
 
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -33,11 +34,24 @@ opt.listchars = { eol = "↲", tab = "» ", trail = "·", extends = "▸", nbsp 
 opt.diffopt = { "internal", "filler", "closeoff", "linematch:60" }
 opt.autoindent = true
 opt.colorcolumn = "+1"
+opt.wildignore = "*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx"
 
 -- Override NvChad default settings
 opt.relativenumber = true
 opt.tabstop = 4
 
+-- Abbrev
+cmd("cnoreabbrev Q  q")
+cmd("cnoreabbrev q1  q!")
+cmd("cnoreabbrev Q1  q!")
+cmd("cnoreabbrev Qa1 qa!")
+cmd("cnoreabbrev Qa qa")
+cmd("cnoreabbrev W  w")
+cmd("cnoreabbrev Wq wq")
+cmd("cnoreabbrev WQ wq")
+cmd("cnoreabbrev Set set")
+cmd("cnoreabbrev SEt set")
+cmd("cnoreabbrev SET set")
 
 -------------------- Auto commands -----------------------
 -- Instead of reverting the cursor to the last position in the buffer

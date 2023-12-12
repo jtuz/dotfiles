@@ -62,7 +62,7 @@ M.misc = {
     ["<Left>"] = { "<NOP>", "Disable Left" },
     ["<Right>"] = { "<NOP>", "Disable Right" },
     -- Personal Tools
-    ["<leader>jq"] = { "<Esc>:%!jq .<CR><Esc><cmd> set filetype=json<CR>", "Format Json" },
+    ["<leader>jq"] = { "<Esc><cmd>%!jq .<CR><Esc><cmd> set filetype=json<CR>", "Format Json" },
     ["<leader>so"] = { "<cmd> SymbolsOutline<CR>", "Symbols Outline" }
   },
 
