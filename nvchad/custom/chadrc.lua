@@ -7,8 +7,8 @@ local M = {}
 -- ui configs
 M.ui = {
   -- theme to be used, check available themes with `<leader> + t + h`
-  theme_toggle = { "gruvchad", "oceanic-next" },
-  theme = "oceanic-next",
+  theme_toggle = { "gruvchad", "kanagawa" },
+  theme = "kanagawa",
   transparency = false,
   hl_override = highlights.override,
   hl_add = highlights.add,

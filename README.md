@@ -28,6 +28,8 @@
 21. [3270 Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/3270.zip)
 21. [Custom Iosevka Nerd Font](https://github.com/awnion/custom-iosevka-nerd-font)
 22. [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
+23. [jq](https://jqlang.github.io/jq/)
+24. [yq](https://github.com/mikefarah/yq)
 
 
 ## Enable italics using tmux

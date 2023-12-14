@@ -120,3 +120,12 @@ autocmd("FileType", {
   pattern = {"help", "man"},
   command = "nnoremap <buffer> gq <cmd>quit<cr>"
 })
+
+-- Fix conceallevel for json files
+autocmd("FileType", {
+  pattern = {"json", "jsonc"},
+  callback = function()
+    vim.wo.spell = false
+    vim.wo.conceallevel = 0
+  end,
+})
