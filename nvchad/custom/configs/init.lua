@@ -19,10 +19,12 @@ M.nvimtree = {
   view = {
     side = "left",
     width = 45,
-    hide_root_folder = false,
     relativenumber = true,
   },
   renderer = {
+    root_folder_label = function (path)
+      return " " .. vim.fn.fnamemodify(path, ":t")
+    end,
     highlight_git = true,
     icons = {
       show = {

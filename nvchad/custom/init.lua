@@ -23,7 +23,7 @@ g.move_key_modifier_visualmode = "A"
 
 ----------------Custom Settings----------------
 g.markdown_fenced_languages = { "html", "python", "ruby", "vim", "bash", "go", "lua" }
--- opt.cmdheight = 0
+opt.cmdheight = 0
 opt.shiftround = true
 opt.encoding = "utf-8"
 opt.backspace = "indent,eol,start"

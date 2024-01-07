@@ -237,6 +237,7 @@ return {
   {
     "folke/noice.nvim",
     lazy = false,
+    enabled = false,
     config = function ()
       require("noice").setup({
         lsp = {
