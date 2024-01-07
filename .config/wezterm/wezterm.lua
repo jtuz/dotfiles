@@ -10,21 +10,38 @@ end
 config.color_scheme = "TokyoNight"
 config.freetype_load_target = "Light"
 config.freetype_render_target = "HorizontalLcd"
-config.font_size = 10.0
+config.font_size = 13.0
+config.use_cap_height_to_scale_fallback_fonts = true
 config.font = wezterm.font_with_fallback({
+	-- {
+	-- 	family = "JetBrains Mono",
+	-- 	weight = "Medium",
+	-- 	italic = false,
+	-- 	harfbuzz_features = {
+	-- 		"zero",
+	-- 		-- "ss01",
+	-- 		"ss02",
+	-- 		"cv03",
+	-- 		"cv04",
+	-- 		"cv14",
+	-- 		"cv16",
+	-- 		"cv99",
+	-- 	},
+	-- },
 	{
-		family = "JetBrains Mono",
-		weight = "DemiBold",
+		family = "Monaspace Krypton",
+		-- family = "Monaspace Neon",
+		weight = "Medium",
 		italic = false,
 		harfbuzz_features = {
-			"zero",
-			-- "ss01",
+			"ss01",
 			"ss02",
-			"cv03",
-			"cv04",
-			"cv14",
-			"cv16",
-			"cv99",
+			"ss03",
+			"ss04",
+			"ss05",
+			"ss06",
+			"ss07",
+			"ss08",
 		},
 	},
 	-- {
@@ -49,15 +66,16 @@ config.font = wezterm.font_with_fallback({
 	-- 	},
 	-- },
 	{
-		family = "Symbols Nerd Font Mono",
+		family = "Symbols Nerd Font",
 		weight = "Regular",
 		italic = false,
 	},
 })
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 40
 config.window_frame = {
 	font = wezterm.font({ family = "Roboto", weight = "Medium" }),
-	font_size = 10.0,
+	font_size = 13.0,
 }
 config.window_padding = {
 	left = 2,
