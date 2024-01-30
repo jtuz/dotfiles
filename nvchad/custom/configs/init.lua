@@ -113,6 +113,11 @@ M.mason = {
     "goimports",
     "golines",
     "delve",
+    "golangci-lint",
+
+    -- xml
+    "lemminx",
+    "powershell-editor-services"
 
     -- yaml
     "yaml-language-server",

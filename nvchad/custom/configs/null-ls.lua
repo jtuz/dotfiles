@@ -18,6 +18,7 @@ local sources = {
   b.formatting.gofmt,
   b.formatting.goimports,
   b.formatting.golines,
+  b.diagnostics.golangci_lint,
   -- Lua
   b.formatting.stylua,
   b.code_actions.gitsigns,

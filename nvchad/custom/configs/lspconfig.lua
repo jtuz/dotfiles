@@ -47,6 +47,8 @@ local servers = {
   bashls = {},
   jsonls = {},
   marksman = {},
+  lemminx = {},
+  powershell_es = {},
   html = {
     filetypes = { "html", "htmldjango" },
   },
