@@ -117,7 +117,7 @@ M.mason = {
 
     -- xml
     "lemminx",
-    "powershell-editor-services"
+    "powershell-editor-services",
 
     -- yaml
     "yaml-language-server",

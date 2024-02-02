@@ -48,7 +48,6 @@ local servers = {
   jsonls = {},
   marksman = {},
   lemminx = {},
-  powershell_es = {},
   html = {
     filetypes = { "html", "htmldjango" },
   },
@@ -106,6 +105,10 @@ for server, config in pairs(servers) do
     filetypes = fif(config, lspconfig[server]),
   })
 end
+
+lspconfig.powershell_es.setup{
+    bundle_path = vim.fn.stdpath "data" .. "/mason/packages/powershell-editor-services/"
+}
 
 -- custom typescript  example
 -- lspconfig.tsserver.setup {
