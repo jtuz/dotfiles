@@ -7,6 +7,8 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+config.use_fancy_tab_bar = false
+config.enable_scroll_bar = false
 config.color_scheme = "TokyoNight"
 config.freetype_load_target = "Light"
 config.freetype_render_target = "HorizontalLcd"
