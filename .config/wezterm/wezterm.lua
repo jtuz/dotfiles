@@ -9,7 +9,21 @@ end
 
 config.use_fancy_tab_bar = false
 config.enable_scroll_bar = false
-config.color_scheme = "TokyoNight"
+-- config.color_scheme = "TokyoNight"
+config.color_scheme = 'Gruvbox dark, hard (base16)'
+config.colors = {
+	tab_bar = {
+		active_tab = {
+			fg_color = "#1D2021",
+			bg_color = "#b8bb26",
+			intensity = "Bold",
+		},
+		-- inactive_tab = {
+		-- 	fg_color = "",
+		-- 	bg_color = ""
+		-- }
+	}
+}
 config.freetype_load_target = "Light"
 config.freetype_render_target = "HorizontalLcd"
 config.font_size = 13.0
@@ -30,43 +44,43 @@ config.font = wezterm.font_with_fallback({
 	-- 		"cv99",
 	-- 	},
 	-- },
-	{
-		family = "Monaspace Krypton",
-		-- family = "Monaspace Neon",
-		weight = "Medium",
-		italic = false,
-		harfbuzz_features = {
-			"ss01",
-			"ss02",
-			"ss03",
-			"ss04",
-			"ss05",
-			"ss06",
-			"ss07",
-			"ss08",
-		},
-	},
 	-- {
-	-- 	family = "Fira Code",
+	-- 	family = "Monaspace Krypton",
+	-- 	-- family = "Monaspace Neon",
 	-- 	weight = "Medium",
 	-- 	italic = false,
 	-- 	harfbuzz_features = {
-	-- 		"zero",
 	-- 		"ss01",
 	-- 		"ss02",
 	-- 		"ss03",
 	-- 		"ss04",
 	-- 		"ss05",
+	-- 		"ss06",
 	-- 		"ss07",
 	-- 		"ss08",
-	-- 		"cv30",
-	-- 		"cv31",
-	-- 		"cv25",
-	-- 		"cv26",
-	-- 		"cv32",
-	-- 		"onum",
 	-- 	},
 	-- },
+	{
+		family = "Fira Code",
+		weight = "Medium",
+		italic = false,
+		harfbuzz_features = {
+			"zero",
+			"ss01",
+			"ss02",
+			"ss03",
+			"ss04",
+			"ss05",
+			"ss07",
+			"ss08",
+			"cv30",
+			"cv31",
+			"cv25",
+			"cv26",
+			"cv32",
+			"onum",
+		},
+	},
 	{
 		family = "Symbols Nerd Font",
 		weight = "Regular",
@@ -89,9 +103,9 @@ config.use_dead_keys = true
 config.audible_bell = "Disabled"
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
-	{ key = "C", mods = "CTRL", action = act.CopyTo("Clipboard") },
-	{ key = "-", mods = "CTRL", action = act.DecreaseFontSize },
-	{ key = "=", mods = "CTRL", action = act.IncreaseFontSize },
+	{ key = "C",         mods = "CTRL",       action = act.CopyTo("Clipboard") },
+	{ key = "-",         mods = "CTRL",       action = act.DecreaseFontSize },
+	{ key = "=",         mods = "CTRL",       action = act.IncreaseFontSize },
 	{ key = "Backspace", mods = "CTRL|SHIFT", action = act.ResetFontSize },
 	{
 		key = "r",
@@ -114,20 +128,20 @@ config.keys = {
 }
 config.key_tables = {
 	resize_pane = {
-		{ key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 1 }) },
-		{ key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "LeftArrow",  action = act.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "h",          action = act.AdjustPaneSize({ "Left", 1 }) },
 
 		{ key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
-		{ key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
+		{ key = "l",          action = act.AdjustPaneSize({ "Right", 1 }) },
 
-		{ key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
-		{ key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "UpArrow",    action = act.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "k",          action = act.AdjustPaneSize({ "Up", 1 }) },
 
-		{ key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
-		{ key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
+		{ key = "DownArrow",  action = act.AdjustPaneSize({ "Down", 1 }) },
+		{ key = "j",          action = act.AdjustPaneSize({ "Down", 1 }) },
 
 		-- Cancel the mode by pressing escape
-		{ key = "Escape", action = "PopKeyTable" },
+		{ key = "Escape",     action = "PopKeyTable" },
 	},
 }
 
