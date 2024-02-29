@@ -43,7 +43,7 @@ IFS="${old_IFS}"
 # as the primary monitor.
 if [ -n "$SECONDARY_OUT" ] && [ -n "$PRIMARY_OUT" ]; then
     xrandr --output "$PRIMARY_OUT" --primary --auto --pos 0x0  --rotate normal\
-           --output "$SECONDARY_OUT" --auto --pos 1920x0 --rotate normal\
+           --output "$SECONDARY_OUT" --auto --pos 2560x0 --rotate normal\
            --output "$LAPTOP_OUTPUT" --off
 elif [ -n "$SECONDARY_OUT" ] && [ -z "$PRIMARY_OUT" ]; then
     xrandr --output "$SECONDARY_OUT" --primary --auto --pos 0x0 --rotate normal\
