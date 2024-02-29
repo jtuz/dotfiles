@@ -73,8 +73,6 @@ M.treesitter = {
     "toml",
     "tsx",
     "typescript",
-    "vim",
-    "vimdoc",
     "yaml",
   },
 }

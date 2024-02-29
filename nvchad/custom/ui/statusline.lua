@@ -1,5 +1,5 @@
 local modules = require("nvchad.statusline.default")
-local config = require("core.utils").load_config().ui.statusline
+local config = require("nvconfig").ui.statusline
 local op_sys = require("custom.utils")
 local sep_style = config.separator_style
 
