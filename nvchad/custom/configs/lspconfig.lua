@@ -30,6 +30,7 @@ local servers = {
           autoSearchPaths = true,
           useLibraryCodeForTypes = true,
           diagnosticMode = "openFilesOnly",
+          indexing = true,
         },
       },
     },
