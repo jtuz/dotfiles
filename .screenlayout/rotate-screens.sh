@@ -53,7 +53,7 @@ xrdb -merge ~/.Xresources
 
 if ! pgrep picom ;
 then
-    DISPLAY=":0" picom -b --experimental-backends
+    DISPLAY=":0" picom -b
 fi
 
 exit 0
