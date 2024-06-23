@@ -93,7 +93,7 @@ $ env TERM=screen-256color tmux
 yay -S fontconfig lib32-fontconfig ttf-roboto-fontconfig nerd-fonts-fontconfig
 yay -S freetype2 lib32-freetype2 cairo siji-git ttf-unifont xorg-fonts-misc ttf-font-awesome
 # another tools
-yay -S picom-ibhagwan-git xscreensaver trayer-srg
+yay -S picom-git xscreensaver trayer-srg
 yay -S lua conky blueman arandr lxappearance nitrogen xorg-xrandr redshift acpi parcellite
 # i3 stuff
 sudo pacman -S i3 i3-gaps i3lock i3status i3blocks
