@@ -23,6 +23,7 @@ config.colors = {
 		-- 	bg_color = ""
 		-- }
 	}
+	split = "#b8bb26",
 }
 config.freetype_load_target = "Light"
 config.freetype_render_target = "HorizontalLcd"
@@ -150,16 +151,14 @@ config.window_background_gradient = {
   -- with the gradient going from left-to-right.
   -- Linear and Radial gradients are also supported; see the other
   -- examples below
-  -- orientation = 'Vertical',
-  orientation = { Linear = { angle = -45.0 } },
+	orientation = 'Vertical',
+  -- orientation = { Linear = { angle = -45.0 } },
 
   -- Specifies the set of colors that are interpolated in the gradient.
   -- Accepts CSS style color specs, from named colors, through rgb
   -- strings and more
   colors = {
     '#0f0c29',
-    -- '#302b63',
-    -- '#24243e',
     '#274060',
     '#1B2845',
   },
