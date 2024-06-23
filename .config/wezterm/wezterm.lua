@@ -22,7 +22,7 @@ config.colors = {
 		-- 	fg_color = "",
 		-- 	bg_color = ""
 		-- }
-	}
+	},
 	split = "#b8bb26",
 }
 config.freetype_load_target = "Light"
