@@ -119,7 +119,10 @@ config.keys = {
   },
   {
     key = "|",
-    mods = "LEADER|SHIFT",
+    -- US Keyboard
+    -- mods = "LEADER|SHIFT", 
+    -- Macos M3 spanish keyboard
+    -- mods = "LEADER",
     action = act.SplitHorizontal { domain = "CurrentPaneDomain" },
   },
   {

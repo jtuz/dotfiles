@@ -4,3 +4,6 @@ command_timeout = 999
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
+
+[kubernetes]
+disabled = false
