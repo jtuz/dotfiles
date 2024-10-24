@@ -1,0 +1,58 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "space f f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  },
+  {
+    "context": "Editor && VimControl && !VimWaiting && !menu",
+    "bindings": {
+      "space g b": "editor::ToggleGitBlame",
+      "shift-k": "editor::Hover",
+      "space f m": "editor::Format",
+      // "space d": "diagnostics::Deploy",
+      "space f f": "file_finder::Toggle",
+      "space f b": "tab_switcher::Toggle",
+      "space f t": "workspace::ToggleLeftDock",
+      "space f w": "workspace::NewSearch",
+      "n": "search::SelectNextMatch",
+      "shift-n": "search::SelectPrevMatch",
+      "alt-i": "workspace::NewCenterTerminal",
+      "g b": "editor::ToggleComments",
+      "+ +": "workspace::Save",
+      "space c": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
+    "bindings": {
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp",
+      "shift-h": "editor::MoveLeft",
+      "shift-l": "editor::MoveRight"
+    }
+  },
+  {
+    "context": "Dock || Terminal || Editor",
+    "bindings": {
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  }
+]
