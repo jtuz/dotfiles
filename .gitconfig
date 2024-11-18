@@ -11,8 +11,8 @@
     status = auto
     branch = auto
 [diff]
-    tool = vimdiff
-[difftool "vimdiff"]
+    tool = nvimdiff
+[difftool "nvimdiff"]
     path = nvim
 [merge]
     tool = fugitive
