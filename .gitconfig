@@ -49,9 +49,9 @@
     diffFilter = delta --color-only --features=interactive
 [delta]
     features = side-by-side line-numbers decorations
-    syntax-theme = Dracula
-    minus-style = red bold ul
-    plus-style = green bold ul
+    syntax-theme = tokyonight
+    ; minus-style = red bold ul
+    ; plus-style = green bold ul
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul

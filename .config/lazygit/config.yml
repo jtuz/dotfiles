@@ -1,27 +1,27 @@
 gui:
+  authorColors:
+    '*': '#b4befe'
   theme:
+    cherryPickedCommitBgColor:
+      - '#45475a'
     activeBorderColor:
       - '#89b4fa'
       - bold
-    inactiveBorderColor:
-      - '#a6adc8'
-    optionsTextColor:
-      - '#89b4fa'
-    selectedLineBgColor:
-      - '#313244'
-    cherryPickedCommitBgColor:
-      - '#45475a'
-    cherryPickedCommitFgColor:
-      - '#89b4fa'
     unstagedChangesColor:
       - '#f38ba8'
-    defaultFgColor:
-      - '#cdd6f4'
+    selectedLineBgColor:
+      - '#313244'
     searchingActiveBorderColor:
       - '#f9e2af'
-
-  authorColors:
-    '*': '#b4befe'
+      - "bold"
+    optionsTextColor:
+      - '#89b4fa'
+    inactiveBorderColor:
+      - '#a6adc8'
+    defaultFgColor:
+      - '#cdd6f4'
+    cherryPickedCommitFgColor:
+      - '#89b4fa'
   nerdFontsVersion: "3"
   border: "double"
 git:
