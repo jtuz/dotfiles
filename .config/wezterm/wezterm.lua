@@ -7,22 +7,25 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+config.enable_tab_bar = true
 config.use_fancy_tab_bar = false
 config.enable_scroll_bar = false
+config.window_decorations = "RESIZE" -- remove native window border
 -- config.color_scheme = "TokyoNight"
 -- config.color_scheme = "Gruvbox dark, hard (base16)"
 config.color_scheme = "Elementary"
 config.colors = {
   tab_bar = {
+    background = "#16161e",
     active_tab = {
-      fg_color = "#1D2021",
-      bg_color = "#b8bb26",
+      fg_color = "#1a1b26",
+      bg_color = "#9ece6a",
       intensity = "Bold",
     },
-    -- inactive_tab = {
-    -- 	fg_color = "",
-    -- 	bg_color = ""
-    -- }
+    inactive_tab = {
+    	fg_color = "#545c7e",
+    	bg_color = "#1f2336"
+    }
   },
   split = "#b8bb26",
 }
