@@ -30,6 +30,7 @@
 22. [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
 23. [jq](https://jqlang.github.io/jq/)
 24. [yq](https://github.com/mikefarah/yq)
+25. [zoxide](https://github.com/ajeetdsouza/zoxide)
 
 
 ## Enable italics using tmux

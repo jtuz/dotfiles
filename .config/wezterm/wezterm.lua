@@ -7,15 +7,23 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+config.max_fps = 120
+config.prefer_egl = true
+
 config.enable_tab_bar = true
 config.show_tabs_in_tab_bar = true
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = true
 config.enable_scroll_bar = false
 config.window_decorations = "RESIZE" -- remove native window border
--- config.color_scheme = "TokyoNight"
+-- config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
+config.color_scheme = "TokyoNight"
 -- config.color_scheme = "Gruvbox dark, hard (base16)"
-config.color_scheme = "Elementary"
+-- config.color_scheme = "Elementary"
+config.inactive_pane_hsb = {
+  saturation = 0.8,
+  brightness = 0.7,
+}
 config.colors = {
   tab_bar = {
     background = "#16161e",
@@ -33,7 +41,8 @@ config.colors = {
 }
 config.freetype_load_target = "Light"
 config.freetype_render_target = "HorizontalLcd"
-config.font_size = 13.0
+config.font_size = 13.7
+-- config.line_height = 1.2
 config.use_cap_height_to_scale_fallback_fonts = true
 config.font = wezterm.font_with_fallback {
   -- {
@@ -67,26 +76,45 @@ config.font = wezterm.font_with_fallback {
   -- 		"ss08",
   -- 	},
   -- },
+  -- {
+  --   family = "Fira Code",
+  --   weight = "Medium",
+  --   italic = false,
+  --   harfbuzz_features = {
+  --     "zero",
+  --     "ss01",
+  --     "ss02",
+  --     "ss03",
+  --     "ss04",
+  --     "ss05",
+  --     "ss07",
+  --     "ss08",
+  --     "cv30",
+  --     "cv31",
+  --     "cv25",
+  --     "cv26",
+  --     "cv32",
+  --     "onum",
+  --   },
+  -- },
   {
-    family = "Fira Code",
+    family = "Cascadia Code",
     weight = "Medium",
     italic = false,
     harfbuzz_features = {
-      "zero",
+      "cv04",
       "ss01",
       "ss02",
-      "ss03",
       "ss04",
       "ss05",
       "ss07",
-      "ss08",
+      "cv13",
+      "cv25",
+      "cv28",
       "cv30",
       "cv31",
-      "cv25",
-      "cv26",
       "cv32",
-      "onum",
-    },
+    }
   },
   {
     family = "Symbols Nerd Font",
@@ -101,14 +129,14 @@ config.window_frame = {
   font_size = 13.0,
 }
 config.window_padding = {
-  left = 2,
-  right = 2,
+  left = 0,
+  right = 0,
   top = 0,
   bottom = 0,
 }
 config.use_dead_keys = true
 config.audible_bell = "Disabled"
-config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
 config.keys = {
   { key = "C", mods = "CTRL", action = act.CopyTo "Clipboard" },
   { key = "-", mods = "CTRL", action = act.DecreaseFontSize },
@@ -125,7 +153,7 @@ config.keys = {
   {
     key = "|",
     -- US Keyboard
-    -- mods = "LEADER|SHIFT", 
+    -- mods = "LEADER|SHIFT",
     -- Macos M3 spanish keyboard
     -- mods = "LEADER",
     action = act.SplitHorizontal { domain = "CurrentPaneDomain" },
@@ -139,6 +167,25 @@ config.keys = {
     key = "t",
     mods = "LEADER",
     action = act.ShowTabNavigator,
+  },
+  {
+    key = 'e',
+    mods = "LEADER",
+    action = wezterm.action.PromptInputLine {
+      description = 'Enter new name for tab',
+      action = wezterm.action_callback(
+        function(window, _, line)
+          if line then
+            window:active_tab():set_title(line)
+          end
+        end
+      ),
+    },
+  },
+  {
+    key = "p",
+    mods = "CMD",
+    action = wezterm.action.PaneSelect
   }
 }
 config.key_tables = {
@@ -166,7 +213,14 @@ config.window_background_gradient = {
   -- Linear and Radial gradients are also supported; see the other
   -- examples below
   -- orientation = "Vertical",
-  orientation = { Linear = { angle = -45.0 } },
+  -- orientation = { Linear = { angle = -45.0 } },
+  orientation = {
+    Radial = {
+      cx = 0.8,
+      cy = 0.8,
+      radius = 1.2,
+    }
+  },
 
   -- Specifies the set of colors that are interpolated in the gradient.
   -- Accepts CSS style color specs, from named colors, through rgb
