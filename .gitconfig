@@ -21,11 +21,12 @@
 [mergetool]
     keepBackup = false
 [mergetool "fugitive"]
-    cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+    ; cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+    cmd = nvim -f -c 'Gvdiffsplit!' '$MERGED'
 [credential]
     helper = cache
 [core]
-    editor = nvim 
+    editor = nvim
     excludesFile = ~/.gitignore_global
 [commit]
     template = ~/.gitmessage.txt

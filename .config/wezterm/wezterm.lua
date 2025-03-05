@@ -123,7 +123,7 @@ config.font = wezterm.font_with_fallback {
   },
 }
 config.window_background_opacity = 0.9
-config.macos_window_background_blur = 40
+config.macos_window_background_blur = 30
 config.window_frame = {
   font = wezterm.font { family = "Roboto", weight = "Medium" },
   font_size = 13.0,
@@ -181,6 +181,19 @@ config.keys = {
         end
       ),
     },
+  },
+  {
+    key = 'p',
+    mods = 'LEADER',
+    -- Present in to our project picker
+    action = require('projects').choose_project(),
+  },
+  -- NOTE: https://wezfurlong.org/wezterm/recipes/workspaces.html
+  {
+    key = 'f',
+    mods = 'LEADER',
+    -- Present a list of existing workspaces
+    action = wezterm.action.ShowLauncherArgs { flags = 'FUZZY|WORKSPACES' },
   },
   {
     key = "p",
@@ -241,6 +254,7 @@ config.window_background_gradient = {
   -- "Rgb", "LinearRgb", "Hsv" and "Oklab" are supported.
   -- The default is "Rgb".
   -- blend = 'Rgb',
+  blend = "Oklab",
 
   -- To avoid vertical color banding for horizontal gradients, the
   -- gradient position is randomly shifted by up to the `noise` value
