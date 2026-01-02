@@ -10,6 +10,8 @@ end
 config.max_fps = 120
 config.prefer_egl = true
 
+-- Acceptable values are SteadyBlock, BlinkingBlock, SteadyUnderline, BlinkingUnderline, SteadyBar, and BlinkingBar
+config.default_cursor_style = "BlinkingBar"
 config.enable_tab_bar = true
 config.show_tabs_in_tab_bar = true
 config.use_fancy_tab_bar = false
@@ -25,6 +27,8 @@ config.inactive_pane_hsb = {
   brightness = 0.7,
 }
 config.colors = {
+  cursor_bg = "#b8bb26",
+  cursor_border = "#b8bb26",
   tab_bar = {
     background = "#16161e",
     active_tab = {
