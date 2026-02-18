@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "aws_docs": {
+      "args": [
+        "awslabs.aws-documentation-mcp-server@latest"
+      ],
+      "command": "uvx",
+      "env": {
+        "AWS_DOCUMENTATION_PARTITION": "aws",
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "dash-api": {
+      "args": [
+        "--from",
+        "git+https://github.com/Kapeli/dash-mcp-server.git",
+        "dash-mcp-server"
+      ],
+      "command": "uvx"
+    }
+  }
+}

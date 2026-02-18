@@ -21,8 +21,7 @@
 [mergetool]
     keepBackup = false
 [mergetool "fugitive"]
-    ; cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
-    cmd = nvim -f -c 'Gvdiffsplit!' '$MERGED'
+    cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [credential]
     helper = cache
 [core]
@@ -49,10 +48,11 @@
 [interactive]
     diffFilter = delta --color-only --features=interactive
 [delta]
-    features = side-by-side line-numbers decorations
+    ; wget --output-document ~/.delta-themes.gitconfig https://raw.githubusercontent.com/dandavison/delta/main/themes.gitconfig
+    features = side-by-side line-numbers decorations <delta-theme>
     syntax-theme = tokyonight
-    ; minus-style = red bold ul
-    ; plus-style = green bold ul
+    minus-style = red bold ul
+    plus-style = green bold ul
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul
@@ -63,3 +63,5 @@
     line-numbers-right-style = cyan
     line-numbers-minus-style = 124
     line-numbers-plus-style = 28
+; [include]
+; 	path = /Users/jtuzp/.delta-themes.gitconfig
