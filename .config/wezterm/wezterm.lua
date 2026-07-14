@@ -7,6 +7,7 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+config.term = "wezterm"
 config.max_fps = 120
 config.prefer_egl = true
 
@@ -133,7 +134,7 @@ config.font = wezterm.font_with_fallback {
     italic = false,
   },
 }
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.85
 config.macos_window_background_blur = 25
 config.window_frame = {
   font = wezterm.font { family = "Roboto", weight = "Medium" },
@@ -238,7 +239,7 @@ config.window_background_gradient = {
   -- Linear and Radial gradients are also supported; see the other
   -- examples below
   -- orientation = "Vertical",
-  orientation = { Linear = { angle = 45.0 } },
+  -- orientation = { Linear = { angle = 45.0 } },
   -- orientation = { Linear = { angle = -45.0 } },
   -- orientation = {
   --   Radial = {
@@ -251,7 +252,7 @@ config.window_background_gradient = {
   -- Specifies the set of colors that are interpolated in the gradient.
   -- Accepts CSS style color specs, from named colors, through rgb
   -- strings and more
-  colors = require("gradient_themes").blue,
+  colors = require("gradient_themes").robbie,
 
   -- Instead of specifying `colors`, you can use one of a number of
   -- predefined, preset gradients.

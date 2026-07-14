@@ -10,7 +10,7 @@ minimum-contrast = 1.3
 background-opacity = 0.85
 background-blur = 20
 background-blur-radius = 10
-background=#001540
+background=#001A25
 # foreground = #c8d3f5
 # font-family =""
 # font-family = "Fira Code"
@@ -26,9 +26,11 @@ cursor-color = #c8d3f5
 cursor-text = #222436
 font-thicken = true
 # Macos
+macos-titlebar-style = tabs
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = left
 # macos-option-as-alt = true
+# allowed values: official, blueprint, chalkboard, microchip, glass, holographic, paper, retro, xray
 macos-icon = xray
 auto-update = download
 auto-update-channel = stable
@@ -36,6 +38,19 @@ auto-update-channel = stable
 split-divider-color = #B8BB26
 
 # key binding
+keybind = resize/arrow_up=resize_split:up,10
+keybind = resize/arrow_down=resize_split:down,10
+keybind = resize/arrow_left=resize_split:left,10
+keybind = resize/arrow_right=resize_split:right,10
+keybind = resize/k=resize_split:up,10
+keybind = resize/j=resize_split:down,10
+keybind = resize/h=resize_split:left,10
+keybind = resize/l=resize_split:right,10
+keybind = resize/escape=deactivate_key_table
+keybind = resize/catch_all=ignore
+
+keybind = ctrl+b>r=activate_key_table:resize
+
 keybind = ctrl+shift+t=new_tab
 keybind = ctrl+-=decrease_font_size:1
 keybind = ctrl+equal=increase_font_size:1
@@ -43,3 +58,7 @@ keybind = ctrl+shift+backspace=reset_font_size
 keybind = ctrl+b>-=new_split:down
 keybind = ctrl+b>shift+|=new_split:right
 # keybind = ctrl+b>|=new_split:right
+
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = no-bell,notify
+notify-on-command-finish-after = 30s
